@@ -1,210 +1,54 @@
-# Markdown & MDX
-
-Rspress supports not only Markdown but also [MDX](https://mdxjs.com/), a powerful way to develop content.
-
-## Markdown
-
-MDX is a superset of Markdown, which means you can write Markdown files as usual. For example:
-
-```md
-# Hello world
-```
-
-## Use component
-
-When you want to use React components in Markdown files, you should name your files with `.mdx` extension. For example:
-
-```mdx
-// docs/index.mdx
-import { CustomComponent } from './custom';
-
-# Hello world
-
-<CustomComponent />
-```
-
-## Front matter
-
-You can add Front Matter at the beginning of your Markdown file, which is a YAML-formatted object that defines some metadata. For example:
-
-```yaml
 ---
-title: Hello world
----
-```
-
-> Note: By default, Rspress uses h1 headings as html headings.
-
-You can also access properties defined in Front Matter in the body, for example:
-
-```markdown
----
-title: Hello world
+pageType: guide
+title: 杭高技术学科知识库导航
 ---
 
-# {frontmatter.title}
-```
+# 杭高技术学科知识库
 
-The previously defined properties will be passed to the component as `frontmatter` properties. So the final output will be:
+欢迎来到浙江省杭州高级中学技术学科知识库！本知识库旨在为选考技术学科的学生提供系统化的学习资源，涵盖信息技术与通用技术两大领域的核心知识点，帮助你更好地备战学业水平考试。
 
-```html
-<h1>Hello world</h1>
-```
+## 知识库概述
 
-## Custom container
+本知识库是为杭高技术学科选考生精心打造的学习平台，具有以下特点：
 
-You can use the `:::` syntax to create custom containers and support custom titles. For example:
+- **系统性知识梳理**：提供结构化的信息技术和通用技术知识体系，帮助学生系统学习
+- **聚焦核心考点**：内容紧密结合学考要求，突出重点难点，助力学生备考
+- **丰富的学习资源**：整合课件、笔记、习题等多种学习资料，满足多样化学习需求
 
-**Input:**
+## 主要内容板块
 
-```markdown
-:::tip
-This is a `block` of type `tip`
-:::
+### 信息技术
 
-:::info
-This is a `block` of type `info`
-:::
+信息技术部分涵盖以下核心内容：
 
-:::warning
-This is a `block` of type `warning`
-:::
+- **基础知识**
+  - [信息系统、支撑技术与信息安全](/information-technology/basic-knowledge/information-systems-support-security)
+  - [数据采集与编码](/information-technology/basic-knowledge/data-acquisition-encoding)
+  - [数据、信息、大数据及人工智能](/information-technology/basic-knowledge/data-information-bigdata-ai)
 
-:::danger
-This is a `block` of type `danger`
-:::
+- **算法**
+  - 排序算法
+    - [冒泡排序](/information-technology/algorithms/sorting/bubble-sort)
+  - 查找算法
+    - [二分查找（对分查找）](/information-technology/algorithms/searching/binary-search)
 
-::: details
-This is a `block` of type `details`
-:::
+### 通用技术
 
-:::tip Custom Title
-This is a `block` of `Custom Title`
-:::
+通用技术部分正在建设中，敬请期待。
 
-:::tip{title="Custom Title"}
-This is a `block` of `Custom Title`
-:::
-```
+## 如何使用本知识库
 
-**Output:**
+1. **浏览导航**：通过顶部导航栏或侧边栏选择你感兴趣的主题
+2. **系统学习**：建议按照知识体系的结构顺序学习，打好基础再学习进阶内容
+3. **重点关注**：特别关注标记为重点和考点的内容，这些是学考的重点内容
+4. **实践操作**：对于编程和算法部分，建议动手实践，加深理解
 
-:::tip
-This is a `block` of type `tip`
-:::
+## 快速导航
 
-:::info
-This is a `block` of type `info`
-:::
+- [返回首页](/)
+- [信息技术](/information-technology/basic-knowledge/information-systems-support-security)
+- [通用技术](/general-technology/)
 
-:::warning
-This is a `block` of type `warning`
-:::
+---
 
-:::danger
-This is a `block` of type `danger`
-:::
-
-::: details
-This is a `block` of type `details`
-:::
-
-:::tip Custom Title
-This is a `block` of `Custom Title`
-:::
-
-:::tip{title="Custom Title"}
-This is a `block` of `Custom Title`
-:::
-
-## Code block
-
-### Basic usage
-
-You can use the \`\`\` syntax to create code blocks and support custom titles. For example:
-
-**Input:**
-
-````md
-```js
-console.log('Hello World');
-```
-
-```js title="hello.js"
-console.log('Hello World');
-```
-````
-
-**Output:**
-
-```js
-console.log('Hello World');
-```
-
-```js title="hello.js"
-console.log('Hello World');
-```
-
-### Show line numbers
-
-If you want to display line numbers, you can enable the `showLineNumbers` option in the config file:
-
-```ts title="rspress.config.ts"
-export default {
-  // ...
-  markdown: {
-    showLineNumbers: true,
-  },
-};
-```
-
-### Wrap code
-
-If you want to wrap long code line by default, you can enable the `defaultWrapCode` option in the config file:
-
-```ts title="rspress.config.ts"
-export default {
-  // ...
-  markdown: {
-    defaultWrapCode: true,
-  },
-};
-```
-
-### Line highlighting
-
-You can also apply line highlighting and code block title at the same time, for example:
-
-**Input:**
-
-````md
-```js title="hello.js" {1,3-5}
-console.log('Hello World');
-
-const a = 1;
-
-console.log(a);
-
-const b = 2;
-
-console.log(b);
-```
-````
-
-**Output:**
-
-```js title="hello.js" {1,3-5}
-console.log('Hello World');
-
-const a = 1;
-
-console.log(a);
-
-const b = 2;
-
-console.log(b);
-```
-
-## Rustify MDX compiler
-
-You can enable Rustify MDX compiler by following config:
+祝你学习愉快！如有任何问题或建议，请联系技术学科组老师。

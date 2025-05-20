@@ -1,16 +1,17 @@
 [
   {
-    "text": "Guide",
-    "link": "/guide/",
-    "activeMatch": "/guide/"
+    "text": "信息技术",
+    "link": "/information-technology/basic-knowledge/information-systems-support-security",
+    "activeMatch": "/information-technology/"
   },
   {
-    "text": "Hello world",
-    "link": "/hello/",
-    "activeMatch": "/hello/"
+    "text": "通用技术",
+    "link": "/general-technology/",
+    "activeMatch": "/general-technology/"
   },
   {
-    "text": "API",
-    "link": "https://rspress.dev/api/index.html"
+    "text": "首页",
+    "link": "/",
+    "activeMatch": "^/$"
   }
 ]

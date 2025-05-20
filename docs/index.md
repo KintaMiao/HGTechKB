@@ -2,8 +2,8 @@
 pageType: home
 
 hero:
-  name: 浙江省杭州高级中学 技术学科知识库
-  text: 为杭高学子打造的全面技术知识平台
+  name: 杭高技术学科知识库
+  text: 为技术选考生准备的知识宝典
   tagline: 涵盖信息技术与通用技术，助力技术学科学习。
   actions:
     - theme: brand
@@ -13,7 +13,7 @@ hero:
       text: 学校官网
       link: http://www.hanggao.net/
   image:
-    src: /rspress-icon.png
+    src: /HG.webp
     alt: Logo
 features:
   - title: 系统性知识梳理
