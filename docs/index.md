@@ -3,7 +3,9 @@ pageType: home
 
 hero:
   name: 杭高技术学科知识库
-  text: 为技术选考生准备的知识宝典
+  text: |
+    为技术选考生准备的
+    知识宝典
   tagline: 涵盖信息技术与通用技术，助力技术学科学习。
   actions:
     - theme: brand
