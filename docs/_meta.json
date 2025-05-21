@@ -5,6 +5,11 @@
     "activeMatch": "/information-technology/"
   },
   {
+    "text": "Python 基础",
+    "link": "/information-technology/python-basics/dictionary",
+    "activeMatch": "/information-technology/python-basics/"
+  },
+  {
     "text": "通用技术",
     "link": "/general-technology/",
     "activeMatch": "/general-technology/"

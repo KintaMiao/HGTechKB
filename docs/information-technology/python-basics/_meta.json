@@ -1,0 +1,26 @@
+[
+  {
+    "text": "Python 基础词典",
+    "link": "/information-technology/python-basics/dictionary"
+  },
+  {
+    "text": "数组与链表",
+    "link": "/information-technology/python-basics/arrays"
+  },
+  {
+    "text": "字符串",
+    "link": "/information-technology/python-basics/strings"
+  },
+  {
+    "text": "队列",
+    "link": "/information-technology/python-basics/queues"
+  },
+  {
+    "text": "栈",
+    "link": "/information-technology/python-basics/stacks"
+  },
+  {
+    "text": "树",
+    "link": "/information-technology/python-basics/trees"
+  }
+]

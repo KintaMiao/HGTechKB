@@ -27,10 +27,22 @@ title: 杭高技术学科知识库导航
   - [数据、信息、大数据及人工智能](/information-technology/basic-knowledge/data-information-bigdata-ai)
 
 - **算法**
+  - [算法效率和概念](/information-technology/algorithms/efficiency)
+  - [迭代算法](/information-technology/algorithms/iteration)
+  - [递归算法](/information-technology/algorithms/recursion)
   - 排序算法
     - [冒泡排序](/information-technology/algorithms/sorting/bubble-sort)
   - 查找算法
+    - [顺序查找](/information-technology/algorithms/searching/sequential-search)
     - [二分查找（对分查找）](/information-technology/algorithms/searching/binary-search)
+
+- **Python 基础**
+  - [Python 基础词典](/information-technology/python-basics/dictionary)
+  - [数组与链表](/information-technology/python-basics/arrays)
+  - [字符串](/information-technology/python-basics/strings)
+  - [队列](/information-technology/python-basics/queues)
+  - [栈](/information-technology/python-basics/stacks)
+  - [树](/information-technology/python-basics/trees)
 
 ### 通用技术
 
