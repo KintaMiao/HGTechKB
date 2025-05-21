@@ -1,0 +1,26 @@
+[
+  {
+    "text": "Overview",
+    "link": "/information-technology/algorithms/index"
+  },
+  {
+    "text": "Algorithm Efficiency",
+    "link": "/information-technology/algorithms/efficiency"
+  },
+  {
+    "text": "Iterative Algorithms",
+    "link": "/information-technology/algorithms/iteration"
+  },
+  {
+    "text": "Recursive Algorithms",
+    "link": "/information-technology/algorithms/recursion"
+  },
+  {
+    "text": "Searching Algorithms",
+    "link": "/information-technology/algorithms/searching/"
+  },
+  {
+    "text": "Sorting Algorithms",
+    "link": "/information-technology/algorithms/sorting/"
+  }
+]
