@@ -2,6 +2,8 @@
 
 浙江省杭州高级中学技术学科知识库，为选考技术学科的学生提供系统化的学习资源，涵盖信息技术与通用技术两大领域的核心知识点。
 
+[![Vercel](https://img.shields.io/badge/Powered%20by-Vercel-black.svg?style=flat-square)](https://vercel.com)
+
 ## 项目概述
 
 本知识库是为杭高技术学科选考生精心打造的学习平台，具有以下特点：
