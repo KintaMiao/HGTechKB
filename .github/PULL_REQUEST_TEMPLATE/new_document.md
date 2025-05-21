@@ -1,7 +1,7 @@
 ---
 name: 新增文档模板
 about: 用于提交新增知识库文档的PR
-title: '新增文档: [文档标题]'
+title: 'docs: 新增[文档标题]文档'
 labels: documentation, enhancement
 ---
 

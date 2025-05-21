@@ -1,7 +1,7 @@
 ---
 name: 问题修复模板
 about: 用于提交修复站点问题的PR
-title: '修复: [问题简述]'
+title: 'fix: [问题简述]'
 labels: bug-fix
 ---
 

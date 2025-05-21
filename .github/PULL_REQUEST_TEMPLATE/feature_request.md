@@ -1,7 +1,7 @@
 ---
 name: 功能增强模板
 about: 用于提交知识库功能增强的PR
-title: '功能: [功能名称]'
+title: 'feat: [功能名称]'
 labels: enhancement
 ---
 
