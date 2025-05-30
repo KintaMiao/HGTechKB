@@ -24,32 +24,13 @@ function SequentialSearch(list, targetValue)
 
 ```python
 def sequential_search(arr, target):
-  """
-  在列表 arr 中顺序查找 target。
-  如果找到，返回 target 在 arr 中的索引；否则返回 -1。
-  """
-  for i in range(len(arr)):
-    if arr[i] == target:
-      return i  # 找到目标，返回索引
-  return -1     # 未找到目标
+    for i in range(len(arr)):  # 从头开始逐个比对
+        if arr[i] == target:   # 找到目标值
+            return i
+    return -1  # 未找到返回 -1
 
-# 示例
-my_list = [4, 2, 7, 1, 9, 5, 3]
-target_value = 5
-result_index = sequential_search(my_list, target_value)
-
-if result_index != -1:
-  print(f"元素 {target_value} 在列表中的索引为: {result_index}")
-else:
-  print(f"元素 {target_value} 未在列表中找到。")
-
-target_value_not_found = 8
-result_index_not_found = sequential_search(my_list, target_value_not_found)
-
-if result_index_not_found != -1:
-  print(f"元素 {target_value_not_found} 在列表中的索引为: {result_index_not_found}")
-else:
-  print(f"元素 {target_value_not_found} 未在列表中找到。")
+numbers = [4, 2, 7, 1, 9, 5, 3]
+print(sequential_search(numbers, 5))  # 输出: 5
 ```
 
 ## 时间复杂度
