@@ -1,6 +1,13 @@
 # Python 基础知识字典
 
-本文档提供 Python 编程中常见的基础知识点快速查阅。
+本文档面向选考技术学科的高中生，提供 Python 编程常见基础知识点和备考要点，便于快速查阅与考试复习。
+
+## 学考常见考点速查
+- 识别和使用基本数据类型
+- 理解变量和赋值的写法
+- 掌握条件语句、循环和函数的基本用法
+- 熟悉常见内置函数
+- 阅读并写出简单程序的运行结果
 
 ## 1. Python 中的常见数据类型
 - **整型 (int)**: 例如 `10`, `-3`, `0b101` (二进制), `0o17` (八进制), `0xFF` (十六进制). Python 的整数支持任意精度。
@@ -16,6 +23,11 @@
 - **字节串 (bytes)**: 例如 `b'hello'`. 不可变的字节序列。
 - **字节数组 (bytearray)**: 例如 `bytearray(b'world')`. 可变的字节序列。
 - **NoneType**: 特殊类型，只有一个值 `None`，常用于表示缺失或空值。
+
+### 考试提示
+- 题目常考列表、字典和字符串的基本操作
+- 区分可变与不可变类型
+- 了解 `None` 表示空值
 
 ## 2. 变量与赋值
 - 变量名规则：以字母或下划线开头，后跟字母、数字或下划线。区分大小写。避免使用 Python 关键字和内置函数名作为变量名。
@@ -39,11 +51,16 @@
 
   first, *rest, last = [1, 2, 3, 4, 5]
   # first = 1, rest = [2, 3, 4], last = 5
-  ```
+```
 - **交换变量**:
   ```python
   x, y = y, x
   ```
+
+### 考试提示
+- 牢记赋值语法 `=` 及多重赋值写法
+- 解包和变量交换在选择题中常出现
+- 变量名不要使用关键字
 
 ## 3. 字符串 (String)
 - 创建：单引号 (`'...'`)、双引号 (`\"...\"`)、三引号 (`'''...'''` 或 `\"\"\"...\"\"\"` 用于多行字符串或文档字符串)。
@@ -94,11 +111,16 @@
     - `s.rsplit(sep=None, maxsplit=-1)`: 从右侧开始分割。
     - `s.splitlines(keepends=False)`: 按行分割。
     - `sep.join(iterable)`: 用 `sep` 连接可迭代对象中的字符串。
-  - **填充与对齐**:
+- **填充与对齐**:
     - `s.center(width[, fillchar])`
     - `s.ljust(width[, fillchar])`
     - `s.rjust(width[, fillchar])`
     - `s.zfill(width)`: 左侧补零。
+
+### 考试提示
+- 常考切片、拼接和格式化字符串
+- 熟悉查找与替换相关方法
+- 输入读取时记得转换数据类型
 
 ## 4. 列表 (List)
 - 创建：`[]`, `list()`, `[x for x in iterable]` (列表推导式)。
@@ -133,8 +155,13 @@
     - `reversed(seq)`: 返回一个反向迭代器 (内置函数)。
   - **复制**:
     - `new_list = old_list[:]` (浅拷贝)
-    - `new_list = old_list.copy()` (浅拷贝)
-    - `import copy; new_list = copy.deepcopy(old_list)` (深拷贝，用于嵌套列表)
+- `new_list = old_list.copy()` (浅拷贝)
+- `import copy; new_list = copy.deepcopy(old_list)` (深拷贝，用于嵌套列表)
+
+### 考试提示
+- 熟练掌握索引、切片及添加删除元素的方法
+- 区分浅拷贝与深拷贝
+- 排序与遍历往往是常见考题
 
 ## 5. 元组 (Tuple)
 - 创建：`()`, `tuple()`, `(item,)` (单个元素的元组需要逗号)。
@@ -149,9 +176,13 @@
   - 重复: `*` (创建新元组)
   - 成员测试: `item in my_tuple`
   - 遍历: `for item in my_tuple:`
-  - `t.count(x)`: 统计 `x` 出现的次数。
-  - `t.index(x[, start[, end]])`: 返回第一个值为 `x` 的元素的索引。
+- `t.count(x)`: 统计 `x` 出现的次数。
+- `t.index(x[, start[, end]])`: 返回第一个值为 `x` 的元素的索引。
 - **用途**：函数返回多个值时自动打包成元组，字符串格式化，用作字典键等。
+
+### 考试提示
+- 单元素元组记得加逗号 `(item,)`
+- 元组不可变，常用来保存固定数据或作为字典键
 
 ## 6. 字典 (Dictionary)
 - 创建：`{}`, `dict()`, `dict(key1=value1, key2=value2)`, `{k: v for k, v in iterable}` (字典推导式)。
@@ -186,6 +217,10 @@
   - `d.setdefault(key[, default])`: 如果键存在，返回其值；否则插入键及默认值 `default` (默认为 `None`) 并返回 `default`。
   - `dict.fromkeys(seq[, value])`: 创建一个新字典，以 `seq` 中的元素作为键，所有键对应的值为 `value` (默认为 `None`)。
 
+### 考试提示
+- 常考遍历字典和使用 `get()` 方法
+- 理解键必须唯一且不可变
+
 ## 7. 集合 (Set)
 - 创建：`{1, 2, 3}`, `set()`, `set(iterable)`, `{x for x in iterable}` (集合推导式)。注意：`{}` 创建的是空字典，空集合必须用 `set()`。
 
@@ -216,12 +251,20 @@
   - `s1.isdisjoint(s2)`: 两个集合是否没有共同元素。
   - **复制**: `new_set = old_set.copy()` (浅拷贝)
 
+### 考试提示
+- 集合不允许重复元素
+- 常见考题涉及并集、交集和差集运算
+
 ## 8. 冻结集合 (Frozenset)
 - 创建：`frozenset()`, `frozenset(iterable)`。
 
 - **特性**：无序 (unordered)、不可变 (immutable)、不包含重复元素。因为不可变，所以可以作为字典的键或集合中的元素。
 
 - **操作**：支持所有不修改集合的集合操作 (如并集、交集、差集、成员测试、`len()` 等)，但不支持 `add`, `remove`, `update` 等修改操作。
+
+### 考试提示
+- 不可变集合可用于作为字典键
+- 基本操作与 `set` 类似但无法增删
 
 ## 9. 输入输出
 - **输入**: `variable = input(\"提示信息: \")`
@@ -242,6 +285,9 @@
   print(\"Second line\") # First line...Second line
   ```
 
+### 考试提示
+- `input()` 得到的都是字符串，必要时转换为数字
+- `print()` 可以同时输出多个变量
 ## 10. 常见内置函数 (部分)
 - `abs(x)`: 返回数字的绝对值。
 - `all(iterable)`: 如果可迭代对象中所有元素都为真 (或可迭代对象为空)，返回 `True`。
@@ -297,6 +343,10 @@
 - `vars([object])`: 返回对象的 `__dict__` 属性。
 - `zip(*iterables, strict=False)`: 将多个可迭代对象打包成元组的迭代器。
 
+### 考试提示
+- 熟记 `len()`, `range()`, `type()` 等常用函数的作用
+- 了解 `map()` 和 `filter()` 的基本使用场景
+
 ## 11. 运算符 (Operators)
 - **算术运算符**: `+`, `-`, `*`, `/` (浮点除), `//` (整数除), `%` (取模), `**` (幂)。
 - **比较运算符**: `==`, `!=`, `>`, `<`, `>=`, `<=`。
@@ -307,6 +357,9 @@
 - **身份运算符**: `is`, `is not` (比较对象内存地址是否相同)。
 - **运算符优先级**: `**` > `~, +, - (一元)` > `*, /, //, %` > `+, - (二元)` > `<<, >>` > `&` > `^` > `|` > `比较, in, not in, is, is not` > `not` > `and` > `or`。
   建议使用括号明确运算顺序。
+### 考试提示
+- 关注算术、比较和逻辑运算符的用法
+- 记住 `and`、`or`、`not` 的短路特性
 
 ## 12. 分支结构 (Conditional Statements)
 - `if` 语句:
@@ -323,6 +376,9 @@
   value_if_true if condition else value_if_false
   result = x if x > y else y # result will be the greater of x and y
   ```
+### 考试提示
+- `if/elif/else` 结构是选择题和填空题的常客
+- 三元表达式常用于简写条件判断
 
 ## 13. 循环结构 (Loops)
 - `for` 循环 (遍历序列或可迭代对象):
@@ -343,11 +399,17 @@
   else: # optional, executes if loop condition becomes False (no break)
       # code block after loop finishes
   ```
+### 考试提示
+- 掌握 for 和 while 的基本语法
+- 注意 else 子句在循环正常结束时执行
 
 ## 14. 转移和中断结构 (Control Flow Statements)
 - `break`: 立即终止当前最内层的 `for` 或 `while` 循环。
 - `continue`: 跳过当前循环的剩余部分，直接进入下一次迭代。
 - `pass`: 空语句，用作占位符，不做任何事情。常用于定义空的函数体或类体。
+### 考试提示
+- break 和 continue 常用于提前结束循环或跳过本次循环
+- pass 在编写占位代码时使用
 
 ## 15. 模块的导入 (Importing Modules)
 - `import module_name`
@@ -364,6 +426,9 @@
   `import package.module`
   `from package import module`
 
+### 考试提示
+- 掌握基本的 import 语法
+- 避免使用 `from module import *` 造成命名冲突
 ## 16. 自定义函数 (Defining Functions)
 - 定义函数:
   ```python
@@ -436,6 +501,10 @@
 
   say_hello(\"World\")
   ```
+### 考试提示
+- 理解函数的定义和调用格式
+- 注意可变默认参数带来的问题
+- 匿名函数和装饰器在选择题中偶有出现
 
 ## 17. 类与对象 (Classes and Objects - OOP Basics)
 - 定义类:
@@ -479,6 +548,10 @@
 - **封装 (Encapsulation)**: 将数据 (属性) 和操作数据的方法捆绑在一起，并隐藏内部实现细节 (通过命名约定如 `_protected`, `__private` 实现伪私有)。
 - **特殊方法 (Magic/Dunder Methods)**: 以双下划线开头和结尾的方法，如 `__init__`, `__str__`, `__repr__`, `__len__`, `__add__` 等，用于实现操作符重载、自定义行为等。
 
+### 考试提示
+- 牢记类的定义格式及 `__init__` 方法
+- 常见概念: 继承、封装、多态
+- 实例方法第一个参数为 `self`
 ## 18. 异常处理 (Exception Handling)
 - `try...except...else...finally` 块:
   ```python
@@ -497,6 +570,10 @@
       print(\"Execution finished.\")
   ```
 - **抛出异常**: `raise ExceptionType(\"Error message\")`
+### 考试提示
+- 掌握 try/except 基本结构
+- 会使用 finally 进行资源清理
+- 自定义异常了解即可
 - **自定义异常**: 通过继承 `Exception` 或其子类来创建。
   ```python
   class MyCustomError(Exception):
@@ -527,6 +604,10 @@
   ```
 - **文件指针**: `file.tell()` (当前位置), `file.seek(offset[, whence])` (移动指针)。
 
+### 考试提示
+- 文件操作常与 with 语句结合考察
+- 牢记常用模式: r/w/a
+- 文件使用后记得关闭或使用 with 自动管理
 ## 20. 列表/集合/字典推导式 (Comprehensions)
 - **列表推导式**: `[expression for item in iterable if condition]`
   ```python
@@ -547,6 +628,9 @@
   sum_of_squares = sum(x**2 for x in range(1000000)) # 高效
   ```
 
+### 考试提示
+- 推导式语法灵活，注意遍历顺序和条件位置
+- 生成器表达式节省内存，常与 sum、list 等函数配合
 ## 21. 生成器 (Generators)
 - **使用 `yield` 关键字的函数**：每次调用 `next()` 时，从上次 `yield` 的地方继续执行，直到遇到下一个 `yield` 或函数结束。
   ```python
@@ -561,6 +645,9 @@
       print(num) # 0, 1, 2, 3, 4
   ```
 - **优点**：内存高效，惰性求值。
+### 考试提示
+- `yield` 定义生成器函数，返回迭代器
+- 生成器适合处理大量数据按需计算
 
 ## 22. 迭代器与可迭代对象 (Iterators and Iterables)
 - **可迭代对象 (Iterable)**: 可以被迭代的对象，如列表、元组、字符串、字典、集合、文件对象、生成器。必须实现 `__iter__()` 方法 (返回迭代器) 或 `__getitem__()` 方法 (支持序列索引)。
@@ -568,6 +655,9 @@
 - `iter()` 内置函数将可迭代对象转换为迭代器。
 - `next()` 内置函数从迭代器获取下一个元素。
 
+### 考试提示
+- 理解可迭代对象与迭代器的区别
+- 掌握使用 iter() 和 next() 的基本方法
 ## 23. 常用标准库模块 (部分)
 - `math`: 数学函数 (`sqrt`, `sin`, `cos`, `pi`, `e` 等)。
 - `random`: 生成伪随机数 (`random`, `randint`, `choice`, `shuffle` 等)。
@@ -584,6 +674,9 @@
 - `requests` (第三方库，常用): HTTP 请求。
 - `numpy` (第三方库，常用): 数值计算，N维数组。
 - `pandas` (第三方库，常用): 数据分析和处理，DataFrame。
+### 考试提示
+- 了解常见标准库的用途即可
+- 第三方库出现时注意其主要功能
 
 ## 24. 虚拟环境 (Virtual Environments)
 - **目的**: 为不同项目创建隔离的 Python 环境，管理各自的依赖包，避免版本冲突。
