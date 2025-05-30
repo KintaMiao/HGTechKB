@@ -1,6 +1,13 @@
 # Python 基础知识字典
 
-本文档提供 Python 编程中常见的基础知识点快速查阅。
+本文档面向选考技术学科的高中生，提供 Python 编程常见基础知识点和备考要点，便于快速查阅与考试复习。
+
+## 学考常见考点速查
+- 识别和使用基本数据类型
+- 理解变量和赋值的写法
+- 掌握条件语句、循环和函数的基本用法
+- 熟悉常见内置函数
+- 阅读并写出简单程序的运行结果
 
 ## 1. Python 中的常见数据类型
 - **整型 (int)**: 例如 `10`, `-3`, `0b101` (二进制), `0o17` (八进制), `0xFF` (十六进制). Python 的整数支持任意精度。
@@ -16,6 +23,11 @@
 - **字节串 (bytes)**: 例如 `b'hello'`. 不可变的字节序列。
 - **字节数组 (bytearray)**: 例如 `bytearray(b'world')`. 可变的字节序列。
 - **NoneType**: 特殊类型，只有一个值 `None`，常用于表示缺失或空值。
+
+### 考试提示
+- 题目常考列表、字典和字符串的基本操作
+- 区分可变与不可变类型
+- 了解 `None` 表示空值
 
 ## 2. 变量与赋值
 - 变量名规则：以字母或下划线开头，后跟字母、数字或下划线。区分大小写。避免使用 Python 关键字和内置函数名作为变量名。
@@ -39,11 +51,16 @@
 
   first, *rest, last = [1, 2, 3, 4, 5]
   # first = 1, rest = [2, 3, 4], last = 5
-  ```
+```
 - **交换变量**:
   ```python
   x, y = y, x
   ```
+
+### 考试提示
+- 牢记赋值语法 `=` 及多重赋值写法
+- 解包和变量交换在选择题中常出现
+- 变量名不要使用关键字
 
 ## 3. 字符串 (String)
 - 创建：单引号 (`'...'`)、双引号 (`\"...\"`)、三引号 (`'''...'''` 或 `\"\"\"...\"\"\"` 用于多行字符串或文档字符串)。
@@ -94,11 +111,16 @@
     - `s.rsplit(sep=None, maxsplit=-1)`: 从右侧开始分割。
     - `s.splitlines(keepends=False)`: 按行分割。
     - `sep.join(iterable)`: 用 `sep` 连接可迭代对象中的字符串。
-  - **填充与对齐**:
+- **填充与对齐**:
     - `s.center(width[, fillchar])`
     - `s.ljust(width[, fillchar])`
     - `s.rjust(width[, fillchar])`
     - `s.zfill(width)`: 左侧补零。
+
+### 考试提示
+- 常考切片、拼接和格式化字符串
+- 熟悉查找与替换相关方法
+- 输入读取时记得转换数据类型
 
 ## 4. 列表 (List)
 - 创建：`[]`, `list()`, `[x for x in iterable]` (列表推导式)。
@@ -133,8 +155,13 @@
     - `reversed(seq)`: 返回一个反向迭代器 (内置函数)。
   - **复制**:
     - `new_list = old_list[:]` (浅拷贝)
-    - `new_list = old_list.copy()` (浅拷贝)
-    - `import copy; new_list = copy.deepcopy(old_list)` (深拷贝，用于嵌套列表)
+- `new_list = old_list.copy()` (浅拷贝)
+- `import copy; new_list = copy.deepcopy(old_list)` (深拷贝，用于嵌套列表)
+
+### 考试提示
+- 熟练掌握索引、切片及添加删除元素的方法
+- 区分浅拷贝与深拷贝
+- 排序与遍历往往是常见考题
 
 ## 5. 元组 (Tuple)
 - 创建：`()`, `tuple()`, `(item,)` (单个元素的元组需要逗号)。
@@ -149,9 +176,13 @@
   - 重复: `*` (创建新元组)
   - 成员测试: `item in my_tuple`
   - 遍历: `for item in my_tuple:`
-  - `t.count(x)`: 统计 `x` 出现的次数。
-  - `t.index(x[, start[, end]])`: 返回第一个值为 `x` 的元素的索引。
+- `t.count(x)`: 统计 `x` 出现的次数。
+- `t.index(x[, start[, end]])`: 返回第一个值为 `x` 的元素的索引。
 - **用途**：函数返回多个值时自动打包成元组，字符串格式化，用作字典键等。
+
+### 考试提示
+- 单元素元组记得加逗号 `(item,)`
+- 元组不可变，常用来保存固定数据或作为字典键
 
 ## 6. 字典 (Dictionary)
 - 创建：`{}`, `dict()`, `dict(key1=value1, key2=value2)`, `{k: v for k, v in iterable}` (字典推导式)。
@@ -186,6 +217,10 @@
   - `d.setdefault(key[, default])`: 如果键存在，返回其值；否则插入键及默认值 `default` (默认为 `None`) 并返回 `default`。
   - `dict.fromkeys(seq[, value])`: 创建一个新字典，以 `seq` 中的元素作为键，所有键对应的值为 `value` (默认为 `None`)。
 
+### 考试提示
+- 常考遍历字典和使用 `get()` 方法
+- 理解键必须唯一且不可变
+
 ## 7. 集合 (Set)
 - 创建：`{1, 2, 3}`, `set()`, `set(iterable)`, `{x for x in iterable}` (集合推导式)。注意：`{}` 创建的是空字典，空集合必须用 `set()`。
 
@@ -216,12 +251,20 @@
   - `s1.isdisjoint(s2)`: 两个集合是否没有共同元素。
   - **复制**: `new_set = old_set.copy()` (浅拷贝)
 
+### 考试提示
+- 集合不允许重复元素
+- 常见考题涉及并集、交集和差集运算
+
 ## 8. 冻结集合 (Frozenset)
 - 创建：`frozenset()`, `frozenset(iterable)`。
 
 - **特性**：无序 (unordered)、不可变 (immutable)、不包含重复元素。因为不可变，所以可以作为字典的键或集合中的元素。
 
 - **操作**：支持所有不修改集合的集合操作 (如并集、交集、差集、成员测试、`len()` 等)，但不支持 `add`, `remove`, `update` 等修改操作。
+
+### 考试提示
+- 不可变集合可用于作为字典键
+- 基本操作与 `set` 类似但无法增删
 
 ## 9. 输入输出
 - **输入**: `variable = input(\"提示信息: \")`
@@ -242,6 +285,9 @@
   print(\"Second line\") # First line...Second line
   ```
 
+### 考试提示
+- `input()` 得到的都是字符串，必要时转换为数字
+- `print()` 可以同时输出多个变量
 ## 10. 常见内置函数 (部分)
 - `abs(x)`: 返回数字的绝对值。
 - `all(iterable)`: 如果可迭代对象中所有元素都为真 (或可迭代对象为空)，返回 `True`。
@@ -297,6 +343,10 @@
 - `vars([object])`: 返回对象的 `__dict__` 属性。
 - `zip(*iterables, strict=False)`: 将多个可迭代对象打包成元组的迭代器。
 
+### 考试提示
+- 熟记 `len()`, `range()`, `type()` 等常用函数的作用
+- 了解 `map()` 和 `filter()` 的基本使用场景
+
 ## 11. 运算符 (Operators)
 - **算术运算符**: `+`, `-`, `*`, `/` (浮点除), `//` (整数除), `%` (取模), `**` (幂)。
 - **比较运算符**: `==`, `!=`, `>`, `<`, `>=`, `<=`。
@@ -307,6 +357,9 @@
 - **身份运算符**: `is`, `is not` (比较对象内存地址是否相同)。
 - **运算符优先级**: `**` > `~, +, - (一元)` > `*, /, //, %` > `+, - (二元)` > `<<, >>` > `&` > `^` > `|` > `比较, in, not in, is, is not` > `not` > `and` > `or`。
   建议使用括号明确运算顺序。
+### 考试提示
+- 关注算术、比较和逻辑运算符的用法
+- 记住 `and`、`or`、`not` 的短路特性
 
 ## 12. 分支结构 (Conditional Statements)
 - `if` 语句:
@@ -323,6 +376,9 @@
   value_if_true if condition else value_if_false
   result = x if x > y else y # result will be the greater of x and y
   ```
+### 考试提示
+- `if/elif/else` 结构是选择题和填空题的常客
+- 三元表达式常用于简写条件判断
 
 ## 13. 循环结构 (Loops)
 - `for` 循环 (遍历序列或可迭代对象):
@@ -343,11 +399,17 @@
   else: # optional, executes if loop condition becomes False (no break)
       # code block after loop finishes
   ```
+### 考试提示
+- 掌握 for 和 while 的基本语法
+- 注意 else 子句在循环正常结束时执行
 
 ## 14. 转移和中断结构 (Control Flow Statements)
 - `break`: 立即终止当前最内层的 `for` 或 `while` 循环。
 - `continue`: 跳过当前循环的剩余部分，直接进入下一次迭代。
 - `pass`: 空语句，用作占位符，不做任何事情。常用于定义空的函数体或类体。
+### 考试提示
+- break 和 continue 常用于提前结束循环或跳过本次循环
+- pass 在编写占位代码时使用
 
 ## 15. 模块的导入 (Importing Modules)
 - `import module_name`
@@ -364,6 +426,9 @@
   `import package.module`
   `from package import module`
 
+### 考试提示
+- 掌握基本的 import 语法
+- 避免使用 `from module import *` 造成命名冲突
 ## 16. 自定义函数 (Defining Functions)
 - 定义函数:
   ```python
@@ -405,37 +470,9 @@
             print(f\"{key}: {value}\")
     print_info(name=\"Alice\", age=30, city=\"New York\")
     ```
-  - **仅限位置参数 (Positional-only arguments, Python 3.8+)**: 使用 `/` 分隔。
-    ```python
-    def func(pos_only1, pos_only2, /, pos_or_kw, *, kw_only1, kw_only2):
-        pass
-    ```
-  - **仅限关键字参数 (Keyword-only arguments)**: 在 `*args` 或单独的 `*` 之后定义的参数。
-- **Lambda 函数 (匿名函数)**: 简洁的单行函数。
-  ```python
-  add = lambda x, y: x + y
-  print(add(3, 5)) # 8
-  ```
-- **作用域 (Scope)**: LEGB 规则 (Local, Enclosing function locals, Global, Built-in)。
-  - `global` 关键字: 在函数内部修改全局变量。
-  - `nonlocal` 关键字: 在嵌套函数内部修改外层 (非全局) 函数的变量。
-- **闭包 (Closures)**: 内部函数可以记住并访问其外部函数的词法作用域，即使外部函数已经执行完毕。
-- **装饰器 (Decorators)**: 一种修改或增强函数 (或类) 的方式，本质上是接收函数作为参数并返回新函数的函数。
-  ```python
-  def my_decorator(func):
-      def wrapper(*args, **kwargs):
-          print(\"Something is happening before the function is called.\")
-          result = func(*args, **kwargs)
-          print(\"Something is happening after the function is called.\")
-          return result
-      return wrapper
-
-  @my_decorator
-  def say_hello(name):
-      print(f\"Hello, {name}!\")
-
-  say_hello(\"World\")
-  ```
+### 考试提示
+- 理解函数的定义和调用格式
+- 注意可变默认参数带来的问题
 
 ## 17. 类与对象 (Classes and Objects - OOP Basics)
 - 定义类:
@@ -479,6 +516,10 @@
 - **封装 (Encapsulation)**: 将数据 (属性) 和操作数据的方法捆绑在一起，并隐藏内部实现细节 (通过命名约定如 `_protected`, `__private` 实现伪私有)。
 - **特殊方法 (Magic/Dunder Methods)**: 以双下划线开头和结尾的方法，如 `__init__`, `__str__`, `__repr__`, `__len__`, `__add__` 等，用于实现操作符重载、自定义行为等。
 
+### 考试提示
+- 牢记类的定义格式及 `__init__` 方法
+- 常见概念: 继承、封装、多态
+- 实例方法第一个参数为 `self`
 ## 18. 异常处理 (Exception Handling)
 - `try...except...else...finally` 块:
   ```python
@@ -497,6 +538,10 @@
       print(\"Execution finished.\")
   ```
 - **抛出异常**: `raise ExceptionType(\"Error message\")`
+### 考试提示
+- 掌握 try/except 基本结构
+- 会使用 finally 进行资源清理
+- 自定义异常了解即可
 - **自定义异常**: 通过继承 `Exception` 或其子类来创建。
   ```python
   class MyCustomError(Exception):
@@ -527,6 +572,10 @@
   ```
 - **文件指针**: `file.tell()` (当前位置), `file.seek(offset[, whence])` (移动指针)。
 
+### 考试提示
+- 文件操作常与 with 语句结合考察
+- 牢记常用模式: r/w/a
+- 文件使用后记得关闭或使用 with 自动管理
 ## 20. 列表/集合/字典推导式 (Comprehensions)
 - **列表推导式**: `[expression for item in iterable if condition]`
   ```python
@@ -541,33 +590,6 @@
   ```python
   square_dict = {x: x**2 for x in range(5)}
   ```
-- **生成器表达式 (Generator Expressions)**: `(expression for item in iterable if condition)`
-  - 返回一个生成器对象，按需产生值，节省内存。
-  ```python
-  sum_of_squares = sum(x**2 for x in range(1000000)) # 高效
-  ```
-
-## 21. 生成器 (Generators)
-- **使用 `yield` 关键字的函数**：每次调用 `next()` 时，从上次 `yield` 的地方继续执行，直到遇到下一个 `yield` 或函数结束。
-  ```python
-  def count_up_to(n):
-      i = 0
-      while i < n:
-          yield i
-          i += 1
-
-  counter = count_up_to(5)
-  for num in counter:
-      print(num) # 0, 1, 2, 3, 4
-  ```
-- **优点**：内存高效，惰性求值。
-
-## 22. 迭代器与可迭代对象 (Iterators and Iterables)
-- **可迭代对象 (Iterable)**: 可以被迭代的对象，如列表、元组、字符串、字典、集合、文件对象、生成器。必须实现 `__iter__()` 方法 (返回迭代器) 或 `__getitem__()` 方法 (支持序列索引)。
-- **迭代器 (Iterator)**: 表示数据流的对象。必须实现 `__iter__()` 方法 (返回自身) 和 `__next__()` 方法 (返回下一个元素或在耗尽时引发 `StopIteration` 异常)。
-- `iter()` 内置函数将可迭代对象转换为迭代器。
-- `next()` 内置函数从迭代器获取下一个元素。
-
 ## 23. 常用标准库模块 (部分)
 - `math`: 数学函数 (`sqrt`, `sin`, `cos`, `pi`, `e` 等)。
 - `random`: 生成伪随机数 (`random`, `randint`, `choice`, `shuffle` 等)。
@@ -584,111 +606,7 @@
 - `requests` (第三方库，常用): HTTP 请求。
 - `numpy` (第三方库，常用): 数值计算，N维数组。
 - `pandas` (第三方库，常用): 数据分析和处理，DataFrame。
+### 考试提示
+- 了解常见标准库的用途即可
+- 第三方库出现时注意其主要功能
 
-## 24. 虚拟环境 (Virtual Environments)
-- **目的**: 为不同项目创建隔离的 Python 环境，管理各自的依赖包，避免版本冲突。
-- **常用工具**: `venv` (Python 3.3+ 内置), `virtualenv` (第三方)。
-- **`venv` 基本使用**:
-  1. 创建环境: `python -m venv myenv_name`
-  2. 激活环境:
-     - Windows: `myenv_name\\Scripts\\activate`
-     - macOS/Linux: `source myenv_name/bin/activate`
-  3. 安装包: `pip install package_name`
-  4. 查看已安装包: `pip list` 或 `pip freeze > requirements.txt`
-  5. 退出环境: `deactivate`
-
-## 25. pip 包管理器
-- `pip install package_name`: 安装包。
-- `pip install package_name==version`: 安装指定版本。
-- `pip install -r requirements.txt`: 从文件安装所有依赖。
-- `pip uninstall package_name`: 卸载包。
-- `pip list`: 列出已安装的包。
-- `pip freeze`: 以 `requirements.txt` 格式输出已安装的包。
-- `pip search query`: 搜索包。
-- `pip show package_name`: 显示包的详细信息。
-- `pip install --upgrade package_name`: 升级包。
-
-## 26. Python 最佳实践和风格指南 (PEP 8)
-
-PEP 8 是 Python 的官方风格指南，它提供了关于如何编写清晰、可读的 Python 代码的约定。遵循 PEP 8 可以使代码在不同开发者之间更具一致性和可维护性。
-
-### 主要方面：
-
-1.  **代码布局**
-    *   **缩进**: 使用 4 个空格进行缩进，不要使用制表符 (Tab)。
-    *   **行长度**: 每行代码最长不应超过 79 个字符。对于文档字符串或注释，可以限制在 72 个字符。
-    *   **空行**: 
-        *   顶层函数和类定义之间用两个空行隔开。
-        *   类中的方法定义之间用一个空行隔开。
-        *   在函数内部，可以使用空行来分隔逻辑上不同的代码块 (谨慎使用)。
-    *   **导入 (Imports)**:
-        *   导入语句应始终放在文件顶部，位于模块注释和文档字符串之后，全局变量和常量之前。
-        *   导入应按以下顺序分组，每组之间用一个空行隔开：
-            1.  标准库导入 (e.g., `os`, `sys`)
-            2.  相关第三方库导入 (e.g., `requests`, `numpy`)
-            3.  本地应用程序/库特定导入
-        *   推荐使用绝对导入，例如 `from mypkg import mysubmodule` 而不是 `import mysubmodule` (如果 `mysubmodule` 在 `mypkg` 内)。
-        *   避免使用通配符导入 (`from module import *`)，因为它会使命名空间不清晰。
-    *   **表达式和语句中的空格**:
-        *   二元运算符两侧各使用一个空格：`i = i + 1`, `submitted += 1`。
-        *   逗号、分号、冒号后应有空格，但其前不应有空格：`a, b = 1, 2`。
-        *   函数调用时，函数名和左括号之间不应有空格：`my_func(arg1)`。
-        *   切片操作中，冒号两侧的空格应一致，通常不加空格或两侧都加空格 (如果优先级需要)。
-        *   不要在括号、方括号、花括号的内部紧邻处添加空格：`my_list[0]` 而不是 `my_list [ 0 ]`。
-
-2.  **命名约定**
-    *   **变量名**: 小写，单词间用下划线分隔 (snake_case)，例如 `my_variable`, `user_name`。
-    *   **函数名**: 与变量名类似，小写加下划线，例如 `calculate_sum()`, `get_user_data()`。
-    *   **类名**: CapWords 约定 (驼峰式，首字母大写)，例如 `MyClass`, `UserProfile`。
-    *   **常量名**: 全部大写，单词间用下划线分隔，例如 `MAX_OVERFLOW`, `TOTAL_COUNT`。
-    *   **模块名**: 简短、全小写，可以使用下划线 (但不推荐，除非为了提高可读性)，例如 `mymodule`, `data_processing`。
-    *   **包名**: 简短、全小写，不推荐使用下划线，例如 `mypackage`。
-    *   **方法名**: 与函数名类似。
-    *   **实例方法第一个参数**: `self`。
-    *   **类方法第一个参数**: `cls`。
-    *   **受保护的 (Protected) 成员**: 以下划线开头，例如 `_protected_member` (这是一种约定，Python 不强制私有性)。
-    *   **私有的 (Private) 成员**: 以双下划线开头，例如 `__private_member` (会触发名称修饰 Name Mangling)。
-
-3.  **注释**
-    *   **块注释 (Block Comments)**: 通常用于注释掉代码块前面的几行代码，每行以 `#` 和一个空格开头，并与它们注释的代码具有相同的缩进级别。
-    *   **行内注释 (Inline Comments)**: 在代码行的同一行，用至少两个空格与语句分开，然后是 `#` 和一个空格，例如 `x = x + 1  # Increment x`。应谨慎使用行内注释。
-    *   **文档字符串 (Docstrings)**: 为所有公共模块、函数、类和方法编写文档字符串。文档字符串是用三引号 (`"""..."""` 或 `'''...'''`) 括起来的字符串。
-        *   第一行应为简短的摘要，后面可以跟更详细的解释。
-        *   对于函数和方法，应描述其参数、返回值、可能抛出的异常等。
-        ```python
-        def my_function(arg1, arg2):
-            """Summarize the function's purpose here.
-
-            More detailed explanation if needed.
-
-            Args:
-                arg1 (type): Description of arg1.
-                arg2 (type): Description of arg2.
-
-            Returns:
-                type: Description of the return value.
-
-            Raises:
-                SpecificException: Why this exception is raised.
-            """
-            # function body
-            pass
-        ```
-
-4.  **编程建议**
-    *   **与 None 的比较**: 使用 `is` 或 `is not`，而不是 `==`。例如 `if my_var is None:`。
-    *   **布尔值判断**: 不要将布尔值与 `True` 或 `False` 进行比较。例如，使用 `if my_bool_var:` 而不是 `if my_bool_var == True:`。
-    *   **使用 `startswith()` 和 `endswith()`**: 用于检查前缀或后缀，而不是使用字符串切片。
-    *   **异常处理**: 尽量捕获具体的异常，而不是裸露的 `except:` 或 `except Exception:` (除非确实需要通用处理并记录)。
-    *   **使用 `with` 语句**: 自动管理资源 (如文件、锁)，确保它们在使用完毕后正确关闭或释放。
-    *   **返回语句**: 函数要么都返回表达式，要么都不返回 (隐式返回 `None`)。不要混合使用。
-    *   **列表推导式**: 对于简单的循环创建列表，列表推导式通常更简洁可读。
-
-### 工具
-
-*   **Linters**: 工具如 `Flake8` (结合了 PyFlakes, pycodestyle/PEP8, McCabe), `Pylint` 可以帮助检查代码是否符合 PEP 8 及其他潜在问题。
-*   **Formatters**: 工具如 `Black`, `autopep8`, `YAPF` 可以自动格式化代码以符合 PEP 8 的大部分规则。
-
-遵循 PEP 8 不仅仅是为了美观，更重要的是为了提高代码的长期可读性和可维护性，这在团队协作中尤为重要。
-
-本文档会持续更新和扩充。
