@@ -20,42 +20,19 @@ title: 冒泡排序
 
 ```python
 def bubble_sort(arr):
-    """
-    冒泡排序函数
-    参数:
-        arr: 需要排序的列表
-    返回:
-        排序后的列表
-    """
-    n = len(arr)  # 获取列表长度
-
-    # 外层循环控制需要进行多少轮比较
-    for i in range(n):
-        # 设置一个标志，如果这一轮没有交换，说明已经排好序了
-        swapped = False
-
-        # 内层循环进行每一轮的比较和交换
-        # 每一轮结束后，最大的元素会"冒泡"到最后
-        # 因此，每轮比较的元素个数都可以减少1
-        for j in range(0, n - i - 1):
-            # 如果当前元素大于下一个元素，则交换它们
-            if arr[j] > arr[j + 1]:
+    n = len(arr)  # 列表长度
+    for i in range(n):  # 控制排序轮数
+        swapped = False  # 标记本轮是否发生交换
+        for j in range(0, n - i - 1):  # 相邻元素两两比较
+            if arr[j] > arr[j + 1]:  # 如果顺序错误则交换
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 swapped = True
-
-        # 如果这一轮没有发生交换，说明列表已经有序，可以提前结束
-        if not swapped:
+        if not swapped:  # 若未发生交换说明已排好序
             break
-
     return arr
 
-# 测试代码
-if __name__ == "__main__":
-    test_list = [64, 34, 25, 12, 22, 11, 90]
-    print("排序前的列表:", test_list)
-
-    sorted_list = bubble_sort(test_list)
-    print("排序后的列表:", sorted_list)
+data = [64, 34, 25, 12, 22, 11, 90]
+print(bubble_sort(data))
 ```
 
 ## 程序解释
@@ -72,6 +49,6 @@ if __name__ == "__main__":
 
 6. **提前结束**：如果在某一轮比较中没有发生交换（`swapped`为`False`），说明列表已经有序，使用`break`提前结束排序。
 
-7. **测试代码**：创建一个测试列表，调用`bubble_sort`函数进行排序，并打印排序前后的结果。
+7. **示例**：创建一个列表并调用`bubble_sort`函数输出排序结果。
 
 冒泡排序的时间复杂度为O(n²)，其中n是列表的长度。虽然这个算法不是最高效的排序算法，但它概念简单，易于实现，适合用于教学目的和小规模数据的排序。
