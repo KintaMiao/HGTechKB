@@ -88,6 +88,10 @@ export default defineConfig({
               link: '/information-technology/programming-languages/python/python-basic-dictionary',
             },
             {
+              text: 'Pandas 与 Matplotlib',
+              link: '/information-technology/programming-languages/python/python-pandas-matplotlib',
+            },
+            {
               text: '数组',
               link: '/information-technology/programming-languages/python/data-structures/arrays',
             },

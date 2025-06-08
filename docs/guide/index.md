@@ -41,6 +41,7 @@ title: 杭高技术学科知识库导航
 - **Python 编程**
   - [Python 基础知识概览](/information-technology/programming-languages/python/index)
   - [Python 基础知识字典](/information-technology/programming-languages/python/python-basic-dictionary)
+  - [Pandas 与 Matplotlib](/information-technology/programming-languages/python/python-pandas-matplotlib)
   - 数据结构
     - [数组](/information-technology/programming-languages/python/data-structures/arrays)
     - [字符串](/information-technology/programming-languages/python/data-structures/strings)
@@ -70,6 +71,7 @@ title: 杭高技术学科知识库导航
 3. **编程阶段**：在理解算法的基础上，学习Python编程
    - 从[Python基础知识概览](/information-technology/programming-languages/python/index)入门
    - 参考[Python基础知识字典](/information-technology/programming-languages/python/python-basic-dictionary)巩固基础
+   - 学习[Pandas 与 Matplotlib](/information-technology/programming-languages/python/python-pandas-matplotlib)进行数据分析与可视化
    - 学习Python中的各种数据结构，如[数组](/information-technology/programming-languages/python/data-structures/arrays)、[字符串](/information-technology/programming-languages/python/data-structures/strings)等
 
 ## 如何使用本知识库
