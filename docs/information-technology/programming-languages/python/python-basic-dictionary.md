@@ -1,399 +1,920 @@
 # Python 基础知识字典
 
-本文档面向选考技术学科的高中生，提供 Python 编程常见基础知识点和备考要点，便于快速查阅与考试复习。
+## 目录
+- [数据类型](#数据类型)
+- [变量与赋值](#变量与赋值)
+- [字符串](#字符串)
+- [列表](#列表)
+- [字典](#字典)
+- [输入输出](#输入输出)
+- [常见内置函数](#常见内置函数)
+- [分支结构](#分支结构)
+- [循环结构](#循环结构)
+- [转移和中断结构](#转移和中断结构)
+- [模块的导入](#模块的导入)
+- [自定义函数](#自定义函数)
 
-## 1. Python 中的常见数据类型
-- **整型 (int)**: 例如 `10`, `-3`, `0b101` (二进制), `0o17` (八进制), `0xFF` (十六进制). Python 的整数支持任意精度。
-- **浮点型 (float)**: 例如 `3.14`, `-0.5`, `1.2e3` (科学计数法).
-- **字符串 (str)**: 例如 `'hello'`, `"world"`, `'''multi-line'''`. 字符串是不可变的 Unicode 字符序列。
-- **布尔型 (bool)**: `True`, `False`. 它们是 `int` 的子类，`True` 对应 `1`，`False` 对应 `0`。
-- **列表 (list)**: 例如 `[1, 'a', 3.0, True]`. 有序、可变序列。
-- **元组 (tuple)**: 例如 `(1, 'a', 3.0, True)`. 有序、不可变序列。
-- **字典 (dict)**: 例如 `{'name': 'Alice', 'age': 30}`. 无序（Python 3.6之前）或有序（Python 3.7+）的键值对集合，键必须唯一且不可变，值可变。
-- **集合 (set)**: 例如 `{1, 2, 3, 'a'}`. 无序、不重复元素的集合，可变。
-- **NoneType**: 特殊类型，只有一个值 `None`，常用于表示缺失或空值。
+---
 
-### 考试提示
-- 题目常考列表、字典和字符串的基本操作
-- 区分可变与不可变类型
-- 了解 `None` 表示空值
+## 数据类型
 
-## 2. 变量与赋值
-- 变量名规则：以字母或下划线开头，后跟字母、数字或下划线。区分大小写。避免使用 Python 关键字和内置函数名作为变量名。
-- 赋值操作：使用 `=`
-  ```python
-  name = "Python"  # 字符串赋值
-  age = 30       # 整数赋值
-  pi = 3.14159   # 浮点数赋值
-  is_learning = True # 布尔值赋值
-  my_list = [1, 2, 3] # 列表赋值
-  ```
-- **多重赋值**:
-  ```python
-  x, y, z = 1, 2, 3
-  a = b = c = 10 # a, b, c 都指向同一个值为10的整数对象
-  ```
-- **解包赋值**:
-  ```python
-  coordinates = (10, 20)
-  x, y = coordinates # x=10, y=20
-  ```
-- **交换变量**:
-  ```python
-  x, y = y, x
-  ```
+### 基本数据类型
 
-### 考试提示
-- 牢记赋值语法 `=` 及多重赋值写法
-- 解包和变量交换在选择题中常出现
-- 变量名不要使用关键字
+#### 整数 (int)
+```python
+# 整数
+age = 25
+negative_num = -10
+big_num = 1000000
 
-## 3. 字符串 (String)
-- 创建：单引号 (`'...'`)、双引号 (`"..."`)、三引号 (`'''...'''` 或 `"""..."""` 用于多行字符串或文档字符串)。
+# 不同进制
+binary = 0b1010      # 二进制，值为10
+octal = 0o12         # 八进制，值为10
+hexadecimal = 0xa    # 十六进制，值为10
+```
 
-- **特性**：不可变 (immutable)。
+#### 浮点数 (float)
+```python
+# 浮点数
+price = 19.99
+pi = 3.14159
+scientific = 1.5e-4  # 科学计数法，值为0.00015
+```
 
-- **常用操作与方法**：
-  - 拼接: `+` (创建新字符串)
-  - 重复: `*` (创建新字符串)
-  - 索引: `my_string[index]` (负数索引从后向前)
-  - 切片: `my_string[start:end:step]` (不包括 `end`)
-  - 长度: `len(my_string)`
-  - 成员测试: `substring in my_string`
-  - 遍历: `for char in my_string:`
-  - **格式化**: 
-    - f-strings (Python 3.6+): `f"Name: {name}, Age: {age}"` (推荐)
-    - `str.format()`: `"Name: {}, Age: {}".format(name, age)`
-    - %-formatting (旧式): `"Name: %s, Age: %d" % (name, age)`
-  - **查找与替换**:
-    - `s.find(sub[, start[, end]])`: 查找子串，返回首次出现的索引，未找到返回 -1。
-    - `s.index(sub[, start[, end]])`: 类似 `find`，但未找到会抛出 `ValueError`。
-    - `s.replace(old, new[, count])`: 替换子串。
-    - `s.count(sub[, start[, end]])`: 统计子串出现次数。
-  - **大小写转换**:
-    - `s.upper()`: 转大写。
-    - `s.lower()`: 转小写。
-    - `s.capitalize()`: 首字母大写，其余小写。
-    - `s.title()`: 每个单词首字母大写。
-  - **判断类方法 (返回布尔值)**:
-    - `s.startswith(prefix[, start[, end]])`
-    - `s.endswith(suffix[, start[, end]])`
-    - `s.isalnum()`: 是否所有字符都是字母或数字。
-    - `s.isalpha()`: 是否所有字符都是字母。
-    - `s.isdigit()`: 是否所有字符都是数字。
-    - `s.islower()`: 是否所有字母字符都是小写。
-    - `s.isupper()`: 是否所有字母字符都是大写。
-    - `s.isspace()`: 是否所有字符都是空白字符。
-  - **去除空白**:
-    - `s.strip([chars])`: 去除两端指定字符 (默认空白)。
-    - `s.lstrip([chars])`: 去除左侧。
-    - `s.rstrip([chars])`: 去除右侧。
-  - **分割与连接**:
-    - `s.split(sep=None, maxsplit=-1)`: 按分隔符分割字符串成列表。
-    - `sep.join(iterable)`: 用 `sep` 连接可迭代对象中的字符串。
+#### 字符串 (str)
+```python
+# 字符串
+name = "Alice"
+message = 'Hello World'
+multiline = """这是一个
+多行字符串"""
+```
 
-### 考试提示
-- 常考切片、拼接和格式化字符串
-- 熟悉查找与替换相关方法
-- 输入读取时记得转换数据类型
+#### 布尔值 (bool)
+```python
+# 布尔值
+is_student = True
+is_working = False
 
-## 4. 列表 (List)
-- 创建：`[]`, `list()`, `[x for x in iterable]` (列表推导式)。
+# 布尔运算
+result = True and False  # False
+result = True or False   # True
+result = not True        # False
+```
 
-- **特性**：有序 (ordered)、可变 (mutable)、可包含不同类型元素。
+#### 空值 (None)
+```python
+# None 表示空值
+data = None
+if data is None:
+    print("数据为空")
+```
 
-- **常用操作与方法**：
-  - 索引: `my_list[index]`
-  - 切片: `my_list[start:end:step]` (返回新列表)
-  - 长度: `len(my_list)`
-  - 拼接: `+` (创建新列表)
-  - 重复: `*` (创建新列表)
-  - 成员测试: `item in my_list`
-  - 遍历: `for item in my_list:`
-  - **添加元素**:
-    - `l.append(x)`: 在末尾添加。
-    - `l.insert(i, x)`: 在指定索引 `i` 处插入。
-  - **删除元素**:
-    - `l.pop([i])`: 删除并返回指定索引 `i` 处的元素 (默认末尾)。
-    - `l.remove(x)`: 删除第一个值为 `x` 的元素 (未找到抛出 `ValueError`)。
-    - `del my_list[i]`: 删除指定索引处的元素。
-  - **查找与计数**:
-    - `l.index(x[, start[, end]])`: 返回第一个值为 `x` 的元素的索引 (未找到抛出 `ValueError`)。
-    - `l.count(x)`: 统计 `x` 出现的次数。
-  - **排序与反转**:
-    - `l.sort(key=None, reverse=False)`: 原地排序。
-    - `sorted(iterable, key=None, reverse=False)`: 返回新的已排序列表 (内置函数)。
-    - `l.reverse()`: 原地反转列表。
-  - **复制**:
-    - `new_list = old_list[:]` (浅拷贝)
+### 类型检查和转换
+```python
+# 检查类型
+print(type(42))        # <class 'int'>
+print(isinstance(42, int))  # True
 
-### 考试提示
-- 熟练掌握索引、切片及添加删除元素的方法
-- 了解列表复制的基本方法
-- 排序与遍历往往是常见考题
+# 类型转换
+num_str = "123"
+num = int(num_str)     # 字符串转整数
+float_num = float(num) # 整数转浮点数
+str_num = str(num)     # 数字转字符串
+```
 
-## 5. 元组 (Tuple)
-- 创建：`()`, `tuple()`, `(item,)` (单个元素的元组需要逗号)。
+---
 
-- **特性**：有序 (ordered)、不可变 (immutable)。通常用于存储异构数据集合，或作为字典的键。
+## 变量与赋值
 
-- **常用操作**：
-  - 索引: `my_tuple[index]`
-  - 切片: `my_tuple[start:end:step]` (返回新元组)
-  - 长度: `len(my_tuple)`
-  - 拼接: `+` (创建新元组)
-  - 重复: `*` (创建新元组)
-  - 成员测试: `item in my_tuple`
-  - 遍历: `for item in my_tuple:`
-- `t.count(x)`: 统计 `x` 出现的次数。
-- `t.index(x[, start[, end]])`: 返回第一个值为 `x` 的元素的索引。
-- **用途**：函数返回多个值时自动打包成元组，字符串格式化，用作字典键等。
+### 变量命名规则
+```python
+# 正确的变量名
+user_name = "Alice"
+age2 = 25
+_private_var = "hidden"
+MAX_SIZE = 100
 
-### 考试提示
-- 单元素元组记得加逗号 `(item,)`
-- 元组不可变，常用来保存固定数据或作为字典键
+# 错误的变量名（会报错）
+# 2age = 25        # 不能以数字开头
+# user-name = ""   # 不能包含连字符
+# class = "A"      # 不能使用关键字
+```
 
-## 6. 字典 (Dictionary)
-- 创建：`{}`, `dict()`, `dict(key1=value1, key2=value2)`.
+### 赋值操作
+```python
+# 基本赋值
+x = 10
+y = x  # y 的值为 10
 
-- **特性**：键值对 (key-value pairs) 集合。键必须是唯一的且不可变类型 (如字符串、数字、元组)。值可以是任意类型。Python 3.7+ 版本字典保持插入顺序。
+# 多重赋值
+a, b, c = 1, 2, 3
+x = y = z = 0  # 同时赋值
 
-- **常用操作与方法**：
-  - 访问值: `my_dict[key]` (若键不存在，抛出 `KeyError`)。
-  - `d.get(key[, default])`: 安全访问，若键不存在，返回 `default` (默认为 `None`)。
-  - 添加/修改键值对: `my_dict[key] = value`
-  - 删除键值对:
-    - `d.pop(key[, default])`: 删除并返回指定键的值 (若键不存在且未提供 `default`，抛出 `KeyError`)。
-    - `del my_dict[key]`: 删除指定键的项。
-  - 长度: `len(my_dict)` (键值对数量)
-  - 成员测试: `key in my_dict` (检查键是否存在)
-  - **视图对象 (动态)**:
-    - `d.keys()`: 返回包含所有键的视图。
-    - `d.values()`: 返回包含所有值的视图。
-    - `d.items()`: 返回包含所有 (键, 值) 对的视图。
-  - 遍历:
-    ```python
-    for key in my_dict: # 遍历键
-        print(key, my_dict[key])
-    for value in my_dict.values(): # 遍历值
-        print(value)
-    for key, value in my_dict.items(): # 遍历键值对
-        print(key, value)
-    ```
-  - `d.update(other_dict)`: 用 `other_dict` 中的键值对更新 `d`。
+# 交换变量
+a, b = b, a
 
-### 考试提示
-- 常考遍历字典和使用 `get()` 方法
-- 理解键必须唯一且不可变
+# 增强赋值
+x += 5   # 等同于 x = x + 5
+x -= 3   # 等同于 x = x - 3
+x *= 2   # 等同于 x = x * 2
+x /= 4   # 等同于 x = x / 4
+```
 
-## 7. 集合 (Set)
-- 创建：`{1, 2, 3}`, `set()`, `set(iterable)`。注意：`{}` 创建的是空字典，空集合必须用 `set()`。
+---
 
-- **特性**：无序 (unordered)、可变 (mutable)、不包含重复元素。
+## 字符串
 
-- **常用操作与方法**：
-  - 长度: `len(my_set)`
-  - 成员测试: `item in my_set` (高效)
-  - 遍历: `for item in my_set:`
-  - **添加元素**:
-    - `s.add(elem)`: 添加单个元素。
-    - `s.update(iterable)`: 添加多个元素 (可以是另一个集合、列表、元组等)。
-  - **删除元素**:
-    - `s.remove(elem)`: 删除元素 (若元素不存在，抛出 `KeyError`)。
-    - `s.discard(elem)`: 删除元素 (若元素不存在，不做任何事)。
-  - **集合运算**:
-    - 并集: `s1 | s2` 或 `s1.union(s2)`
-    - 交集: `s1 & s2` 或 `s1.intersection(s2)`
-    - 差集: `s1 - s2` 或 `s1.difference(s2)`
-  - **复制**: `new_set = old_set.copy()` (浅拷贝)
+### 字符串创建
+```python
+# 不同的引号
+single = 'Hello'
+double = "World"
+triple_single = '''多行
+字符串'''
+triple_double = """另一种
+多行字符串"""
 
-### 考试提示
-- 集合不允许重复元素
-- 常见考题涉及并集、交集和差集运算
+# 原始字符串（忽略转义字符）
+path = r"C:\Users\name\Documents"
+```
 
-## 8. 输入输出
-- **输入**: `variable = input("提示信息: ")`
-  - `input()` 函数总是返回字符串类型。需要使用 `int()`, `float()` 等进行类型转换。
-  ```python
-  name = input("Enter your name: ")
-  age_str = input("Enter your age: ")
-  age_int = int(age_str)
-  ```
-- **输出**: `print(value1, value2, ..., sep=' ', end='\n', file=sys.stdout, flush=False)`
-  - `sep`: 分隔符，默认为空格。
-  - `end`: 结束符，默认为换行符 `\n`。
-  - `file`: 输出目标，默认为标准输出。
-  - `flush`: 是否立即刷新缓冲区。
-  ```python
-  print("Hello", "World", sep="-") # Hello-World
-  print("First line", end="...")
-  print("Second line") # First line...Second line
-  ```
+### 字符串格式化
+```python
+name = "Alice"
+age = 25
 
-### 考试提示
-- `input()` 得到的都是字符串，必要时转换为数字
-- `print()` 可以同时输出多个变量
+# f-string（推荐）
+message = f"我叫{name}，今年{age}岁"
 
-## 9. 常见内置函数 (部分)
-- `abs(x)`: 返回数字的绝对值。
-- `bin(x)`: 将整数转换为二进制字符串 (以 `0b` 开头)。
-- `bool(x)`: 将值转换为布尔值。
-- `chr(i)`: 返回整数 `i` 对应的 Unicode 字符。
-- `ord(c)`: 返回字符 `c` 对应的 Unicode 码点 (整数)。
-- `dict()`: 创建字典。
-- `divmod(a, b)`: 返回 `(a // b, a % b)`。
-- `enumerate(iterable, start=0)`: 返回一个枚举对象，产生 (索引, 值) 对。
-- `float()`: 转换为浮点数。
-- `hex(x)`: 将整数转换为十六进制字符串 (以 `0x` 开头)。
-- `input()`: 获取用户输入。
-- `int()`: 转换为整数。
-- `isinstance(object, classinfo)`: 判断对象是否是指定类或类型的实例。
-- `len(s)`: 返回对象的长度。
-- `list()`: 创建列表。
-- `max(iterable, *[, key, default])` 或 `max(arg1, arg2, *args[, key])`: 返回最大值。
-- `min(iterable, *[, key, default])` 或 `min(arg1, arg2, *args[, key])`: 返回最小值。
-- `oct(x)`: 将整数转换为八进制字符串 (以 `0o` 开头)。
-- `open(file, mode='r', ...)`: 打开文件并返回文件对象。
-- `pow(base, exp[, mod])`: 计算 `base` 的 `exp` 次方，可选模 `mod`。
-- `print()`: 打印输出。
-- `range(stop)` 或 `range(start, stop[, step])`: 生成数字序列。
-- `reversed(seq)`: 返回反向迭代器。
-- `round(number[, ndigits])`: 四舍五入到指定小数位数。
-- `set()`: 创建集合。
-- `sorted(iterable, *, key=None, reverse=False)`: 返回新的已排序列表。
-- `str()`: 转换为字符串。
-- `sum(iterable, /, start=0)`: 求和。
-- `tuple()`: 创建元组。
-- `type(object)` 或 `type(name, bases, dict)`: 返回对象类型或创建新类型。
+# format 方法
+message = "我叫{}，今年{}岁".format(name, age)
+message = "我叫{name}，今年{age}岁".format(name=name, age=age)
 
-### 考试提示
-- 熟记 `len()`, `range()`, `type()` 等常用函数的作用
+# % 格式化（旧式）
+message = "我叫%s，今年%d岁" % (name, age)
+```
 
-## 10. 运算符 (Operators)
-- **算术运算符**: `+`, `-`, `*`, `/` (浮点除), `//` (整数除), `%` (取模), `**` (幂)。
-- **比较运算符**: `==`, `!=`, `>`, `<`, `>=`, `<=`。
-- **赋值运算符**: `=`, `+=`, `-=`, `*=`, `/=`, `//=`, `%=`, `**=`。
-- **逻辑运算符**: `and`, `or`, `not`。
-- **成员运算符**: `in`, `not in`。
-- **运算符优先级**: 算术运算符 > 比较运算符 > 逻辑运算符。`**` 优先级最高，`not` > `and` > `or`。
-  建议使用括号明确运算顺序。
-### 考试提示
-- 关注算术、比较和逻辑运算符的用法
-- 记住 `and`、`or`、`not` 的短路特性
+### 常用字符串方法
+```python
+text = "  Hello World  "
 
-## 11. 分支结构 (Conditional Statements)
-- `if` 语句:
-  ```python
-  if condition1:
-      # code block 1 (executes if condition1 is True)
-  elif condition2: # optional
-      # code block 2 (executes if condition1 is False and condition2 is True)
-  else: # optional
-      # code block 3 (executes if all preceding conditions are False)
-  ```
-### 考试提示
-- `if/elif/else` 结构是选择题和填空题的常客
+# 大小写转换
+print(text.upper())      # "  HELLO WORLD  "
+print(text.lower())      # "  hello world  "
+print(text.title())      # "  Hello World  "
+print(text.capitalize()) # "  hello world  "
 
-## 12. 循环结构 (Loops)
-- `for` 循环 (遍历序列或可迭代对象):
-  ```python
-  for item in iterable:
-      # code block for each item
-  ```
-  ```python
-  for i in range(5): # iterates from 0 to 4
-      print(i)
-  ```
-- `while` 循环 (条件为真时执行):
-  ```python
-  while condition:
-      # code block
-  ```
-### 考试提示
-- 掌握 for 和 while 的基本语法
-- 注意循环的终止条件避免死循环
+# 去除空白
+print(text.strip())      # "Hello World"
+print(text.lstrip())     # "Hello World  "
+print(text.rstrip())     # "  Hello World"
 
-## 13. 转移和中断结构 (Control Flow Statements)
-- `break`: 立即终止当前最内层的 `for` 或 `while` 循环。
-- `continue`: 跳过当前循环的剩余部分，直接进入下一次迭代。
-- `pass`: 空语句，用作占位符，当语法上需要一个语句但程序不需要执行任何操作时使用。
-### 考试提示
-- break 和 continue 常用于提前结束循环或跳过本次循环
-- pass 在编写占位代码时使用
+# 查找和替换
+print(text.find("World"))     # 8
+print(text.replace("World", "Python"))  # "  Hello Python  "
 
-## 14. 模块的导入 (Importing Modules)
-- `import module_name`
-  - 使用: `module_name.function_name()`
-- `from module_name import specific_item1, specific_item2`
-  - 使用: `specific_item1()`
+# 分割和连接
+words = "apple,banana,orange".split(",")  # ['apple', 'banana', 'orange']
+joined = "-".join(words)  # "apple-banana-orange"
 
-### 考试提示
-- 掌握基本的 import 语法
+# 检查字符串
+print("Hello".startswith("He"))  # True
+print("World".endswith("ld"))    # True
+print("123".isdigit())           # True
+print("abc".isalpha())           # True
+```
 
-## 15. 自定义函数 (Defining Functions)
-- 定义函数:
-  ```python
-  def function_name(param1, param2, ..., paramN=default_value):
-      """Docstring: 描述函数功能、参数和返回值."""
-      # code block
-      return value # 可选，若无 return 或 return 后无值，则返回 None
-  ```
-- 调用函数:
-  ```python
-  result = function_name(arg1, arg2)
-  ```
-- **参数类型**：
-  - **位置参数 (Positional arguments)**: 按顺序传递。
-  - **默认参数值 (Default argument values)**: 定义时指定默认值，调用时可省略。
+---
 
-### 考试提示
-- 理解函数的定义和调用格式
-- 注意默认参数的使用
+## 列表
 
-## 16. 异常处理 (Exception Handling)
-- `try...except...finally` 块:
-  ```python
-  try:
-      # 可能引发异常的代码块
-      result = 10 / 0
-  except ZeroDivisionError as e: # 捕获特定异常
-      print(f"Error: Cannot divide by zero. ({e})")
-  except Exception as e: # 捕获所有其他 Exception 子类的异常 (通用)
-      print(f"An unexpected error occurred: {e}")
-  finally: # 可选，无论是否发生异常都会执行 (通常用于资源清理)
-      print("Execution finished.")
-  ```
-### 考试提示
-- 掌握 try/except 基本结构
-- 会使用 finally 进行资源清理
+### 列表创建和访问
+```python
+# 创建列表
+fruits = ["apple", "banana", "orange"]
+numbers = [1, 2, 3, 4, 5]
+mixed = [1, "hello", 3.14, True]
+empty_list = []
 
-## 17. 文件操作 (File I/O)
-- **打开文件**: `file_object = open(filename, mode='r', encoding=None)`
-  - `mode`: `'r'` (读), `'w'` (写，覆盖), `'a'` (追加)。
-  - `encoding`: 文件编码，如 `'utf-8'`。
-- **读取文件**:
-  - `file.read([size])`: 读取指定字节数或整个文件。
-  - `file.readline([size])`: 读取一行。
-  - 迭代文件对象: `for line in file_object:`
-- **写入文件**:
-  - `file.write(string)`
-- **关闭文件**: `file_object.close()` (重要！释放资源)
-- **使用 `with` 语句 (推荐，自动关闭文件)**:
-  ```python
-  with open("myfile.txt", "r", encoding="utf-8") as f:
-      content = f.read()
-      # ... process content ...
-  # 文件在此处自动关闭
-  ```
+# 访问元素
+print(fruits[0])    # "apple" (第一个元素)
+print(fruits[-1])   # "orange" (最后一个元素)
+print(fruits[1:3])  # ["banana", "orange"] (切片)
 
-### 考试提示
-- 文件操作常与 with 语句结合考察
-- 牢记常用模式: r/w/a
-- 文件使用后记得关闭或使用 with 自动管理
+# 列表长度
+print(len(fruits))  # 3
+```
 
-## 18. 常用标准库模块 (部分)
-- `math`: 数学函数 (`sqrt`, `pi`, `e` 等)。
-- `random`: 生成伪随机数 (`random`, `randint`, `choice` 等)。
-### 考试提示
-- 了解 `math` 和 `random` 模块的基本用途即可
+### 列表修改
+```python
+fruits = ["apple", "banana", "orange"]
 
+# 修改元素
+fruits[0] = "grape"  # ["grape", "banana", "orange"]
+
+# 添加元素
+fruits.append("kiwi")           # 末尾添加
+fruits.insert(1, "mango")       # 指定位置插入
+fruits.extend(["pear", "plum"]) # 添加多个元素
+
+# 删除元素
+fruits.remove("banana")  # 删除指定值
+del fruits[0]           # 删除指定索引
+popped = fruits.pop()   # 删除并返回最后一个元素
+fruits.clear()          # 清空列表
+```
+
+### 常用列表方法
+```python
+numbers = [3, 1, 4, 1, 5, 9, 2, 6]
+
+# 排序
+numbers.sort()          # 原地排序
+sorted_nums = sorted(numbers)  # 返回新的排序列表
+
+# 反转
+numbers.reverse()       # 原地反转
+reversed_nums = numbers[::-1]  # 返回新的反转列表
+
+# 查找
+print(numbers.index(4))    # 返回元素的索引
+print(numbers.count(1))    # 统计元素出现次数
+print(4 in numbers)        # 检查元素是否存在
+
+# 列表推导式
+squares = [x**2 for x in range(10)]  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+evens = [x for x in range(20) if x % 2 == 0]  # [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
+```
+
+---
+
+## 字典
+
+### 字典创建和访问
+```python
+# 创建字典
+student = {"name": "Alice", "age": 20, "grade": "A"}
+empty_dict = {}
+dict_from_pairs = dict([("a", 1), ("b", 2)])
+
+# 访问元素
+print(student["name"])        # "Alice"
+print(student.get("age"))     # 20
+print(student.get("height", "未知"))  # "未知" (默认值)
+
+# 获取所有键、值、键值对
+print(student.keys())         # dict_keys(['name', 'age', 'grade'])
+print(student.values())       # dict_values(['Alice', 20, 'A'])
+print(student.items())        # dict_items([('name', 'Alice'), ('age', 20), ('grade', 'A')])
+```
+
+### 字典修改
+```python
+student = {"name": "Alice", "age": 20}
+
+# 添加/修改元素
+student["grade"] = "A"        # 添加新键值对
+student["age"] = 21           # 修改现有值
+
+# 更新字典
+student.update({"height": 165, "weight": 50})
+student.update([("city", "Beijing")])
+
+# 删除元素
+del student["weight"]         # 删除指定键
+popped_value = student.pop("height")  # 删除并返回值
+student.clear()               # 清空字典
+```
+
+### 字典操作
+```python
+student = {"name": "Alice", "age": 20, "grade": "A"}
+
+# 检查键是否存在
+if "name" in student:
+    print("姓名存在")
+
+# 字典推导式
+squares_dict = {x: x**2 for x in range(5)}  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+# 遍历字典
+for key in student:
+    print(f"{key}: {student[key]}")
+
+for key, value in student.items():
+    print(f"{key}: {value}")
+```
+
+---
+
+## 输入输出
+
+### 基本输入输出
+```python
+# 输出
+print("Hello, World!")
+print("姓名:", "Alice", "年龄:", 20)  # 多个参数
+print("Hello", end=" ")  # 不换行
+print("World")
+
+# 格式化输出
+name = "Alice"
+age = 20
+print(f"我叫{name}，今年{age}岁")
+
+# 输入
+name = input("请输入您的姓名: ")
+age = int(input("请输入您的年龄: "))  # 转换为整数
+```
+
+### 文件操作
+```python
+# 写入文件
+with open("data.txt", "w", encoding="utf-8") as file:
+    file.write("Hello, World!\n")
+    file.write("这是第二行\n")
+
+# 读取文件
+with open("data.txt", "r", encoding="utf-8") as file:
+    content = file.read()        # 读取全部内容
+    print(content)
+
+# 逐行读取
+with open("data.txt", "r", encoding="utf-8") as file:
+    for line in file:
+        print(line.strip())      # 去除换行符
+
+# 读取所有行到列表
+with open("data.txt", "r", encoding="utf-8") as file:
+    lines = file.readlines()
+```
+
+---
+
+## 常见内置函数
+
+### 数学函数
+```python
+# 基本数学函数
+print(abs(-5))          # 5 (绝对值)
+print(max(1, 5, 3))     # 5 (最大值)
+print(min(1, 5, 3))     # 1 (最小值)
+print(sum([1, 2, 3, 4])) # 10 (求和)
+print(round(3.14159, 2)) # 3.14 (四舍五入)
+
+# 幂运算
+print(pow(2, 3))        # 8 (2的3次方)
+print(2 ** 3)           # 8 (同上)
+```
+
+### 类型和长度函数
+```python
+# 类型相关
+print(type(42))         # <class 'int'>
+print(isinstance(42, int))  # True
+print(len("Hello"))     # 5 (长度)
+print(len([1, 2, 3]))   # 3
+
+# 转换函数
+print(int("123"))       # 123
+print(float("3.14"))    # 3.14
+print(str(123))         # "123"
+print(list("abc"))      # ['a', 'b', 'c']
+print(tuple([1, 2, 3])) # (1, 2, 3)
+```
+
+### 序列函数
+```python
+# range 函数
+print(list(range(5)))        # [0, 1, 2, 3, 4]
+print(list(range(1, 6)))     # [1, 2, 3, 4, 5]
+print(list(range(0, 10, 2))) # [0, 2, 4, 6, 8]
+
+# enumerate 函数
+fruits = ["apple", "banana", "orange"]
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# zip 函数
+names = ["Alice", "Bob", "Charlie"]
+ages = [20, 25, 30]
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")
+
+# sorted 函数
+numbers = [3, 1, 4, 1, 5]
+print(sorted(numbers))           # [1, 1, 3, 4, 5]
+print(sorted(numbers, reverse=True))  # [5, 4, 3, 1, 1]
+```
+
+### 过滤和映射函数
+```python
+# filter 函数
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+evens = list(filter(lambda x: x % 2 == 0, numbers))  # [2, 4, 6, 8, 10]
+
+# map 函数
+squares = list(map(lambda x: x**2, numbers))  # [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+# any 和 all 函数
+print(any([True, False, False]))  # True (至少一个为真)
+print(all([True, True, False]))   # False (不是全部为真)
+```
+
+---
+
+## 分支结构
+
+### if 语句
+```python
+age = 18
+
+# 基本 if 语句
+if age >= 18:
+    print("你已经成年了")
+
+# if-else 语句
+if age >= 18:
+    print("你已经成年了")
+else:
+    print("你还未成年")
+
+# if-elif-else 语句
+if age < 13:
+    print("儿童")
+elif age < 18:
+    print("青少年")
+elif age < 60:
+    print("成年人")
+else:
+    print("老年人")
+```
+
+### 条件表达式
+```python
+# 三元运算符
+age = 20
+status = "成年" if age >= 18 else "未成年"
+
+# 复合条件
+score = 85
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+else:
+    grade = "D"
+
+# 逻辑运算符
+age = 25
+has_license = True
+
+if age >= 18 and has_license:
+    print("可以开车")
+
+if age < 16 or age > 65:
+    print("特殊年龄段")
+
+if not has_license:
+    print("需要考驾照")
+```
+
+### 条件判断技巧
+```python
+# 检查空值
+data = []
+if data:  # 空列表为 False
+    print("有数据")
+else:
+    print("没有数据")
+
+# 检查多个值
+grade = "A"
+if grade in ["A", "B", "C"]:
+    print("及格")
+
+# 链式比较
+score = 85
+if 80 <= score < 90:
+    print("良好")
+```
+
+---
+
+## 循环结构
+
+### for 循环
+```python
+# 遍历列表
+fruits = ["apple", "banana", "orange"]
+for fruit in fruits:
+    print(fruit)
+
+# 遍历字符串
+for char in "Hello":
+    print(char)
+
+# 使用 range
+for i in range(5):
+    print(i)  # 0, 1, 2, 3, 4
+
+for i in range(1, 6):
+    print(i)  # 1, 2, 3, 4, 5
+
+for i in range(0, 10, 2):
+    print(i)  # 0, 2, 4, 6, 8
+
+# 带索引的遍历
+fruits = ["apple", "banana", "orange"]
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+
+# 遍历字典
+student = {"name": "Alice", "age": 20, "grade": "A"}
+for key in student:
+    print(f"{key}: {student[key]}")
+
+for key, value in student.items():
+    print(f"{key}: {value}")
+```
+
+### while 循环
+```python
+# 基本 while 循环
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+
+# 条件循环
+user_input = ""
+while user_input != "quit":
+    user_input = input("输入命令 (quit 退出): ")
+    print(f"你输入了: {user_input}")
+
+# 无限循环（需要用 break 退出）
+while True:
+    command = input("输入命令: ")
+    if command == "exit":
+        break
+    print(f"执行命令: {command}")
+```
+
+### 嵌套循环
+```python
+# 九九乘法表
+for i in range(1, 10):
+    for j in range(1, i + 1):
+        print(f"{j}×{i}={i*j}", end="\t")
+    print()  # 换行
+
+# 二维列表遍历
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+for row in matrix:
+    for element in row:
+        print(element, end=" ")
+    print()
+```
+
+---
+
+## 转移和中断结构
+
+### break 语句
+```python
+# 在 for 循环中使用 break
+for i in range(10):
+    if i == 5:
+        break  # 跳出循环
+    print(i)  # 输出 0, 1, 2, 3, 4
+
+# 在 while 循环中使用 break
+count = 0
+while True:
+    if count >= 5:
+        break
+    print(count)
+    count += 1
+
+# 在嵌套循环中使用 break
+for i in range(3):
+    for j in range(3):
+        if j == 1:
+            break  # 只跳出内层循环
+        print(f"i={i}, j={j}")
+```
+
+### continue 语句
+```python
+# 跳过偶数
+for i in range(10):
+    if i % 2 == 0:
+        continue  # 跳过本次循环
+    print(i)  # 输出 1, 3, 5, 7, 9
+
+# 在 while 循环中使用 continue
+count = 0
+while count < 10:
+    count += 1
+    if count % 2 == 0:
+        continue
+    print(count)  # 输出奇数
+
+# 处理列表中的特殊值
+numbers = [1, 2, 0, 4, -1, 6]
+for num in numbers:
+    if num <= 0:
+        continue  # 跳过非正数
+    print(f"正数: {num}")
+```
+
+### pass 语句
+```python
+# 占位符，什么都不做
+for i in range(5):
+    if i == 2:
+        pass  # 暂时不处理
+    else:
+        print(i)
+
+# 在函数定义中使用
+def future_function():
+    pass  # 稍后实现
+
+# 在类定义中使用
+class FutureClass:
+    pass  # 稍后实现
+
+# 在异常处理中使用
+try:
+    risky_operation()
+except SpecificError:
+    pass  # 忽略特定错误
+```
+
+### else 子句
+```python
+# for-else
+for i in range(5):
+    if i == 10:  # 永远不会满足
+        break
+    print(i)
+else:
+    print("循环正常结束")  # 会执行
+
+# while-else
+count = 0
+while count < 3:
+    print(count)
+    count += 1
+else:
+    print("while 循环正常结束")  # 会执行
+
+# 查找示例
+numbers = [1, 3, 5, 7, 9]
+target = 4
+for num in numbers:
+    if num == target:
+        print(f"找到了 {target}")
+        break
+else:
+    print(f"没有找到 {target}")  # 会执行
+```
+
+---
+
+## 模块的导入
+
+### 基本导入
+```python
+# 导入整个模块
+import math
+print(math.pi)        # 3.141592653589793
+print(math.sqrt(16))  # 4.0
+
+# 导入特定函数
+from math import pi, sqrt
+print(pi)        # 3.141592653589793
+print(sqrt(16))  # 4.0
+
+# 导入所有内容（不推荐）
+from math import *
+print(sin(pi/2))  # 1.0
+```
+
+### 别名导入
+```python
+# 模块别名
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# 函数别名
+from math import sqrt as square_root
+result = square_root(25)  # 5.0
+
+# 长模块名的别名
+import very_long_module_name as vlmn
+```
+
+### 常用标准库模块
+```python
+# 随机数模块
+import random
+print(random.randint(1, 10))      # 1-10之间的随机整数
+print(random.choice(['a', 'b', 'c']))  # 随机选择
+random.shuffle([1, 2, 3, 4, 5])   # 随机打乱列表
+
+# 时间模块
+import time
+import datetime
+
+print(time.time())                # 时间戳
+time.sleep(1)                     # 暂停1秒
+
+now = datetime.datetime.now()
+print(now.strftime("%Y-%m-%d %H:%M:%S"))
+
+# 操作系统模块
+import os
+print(os.getcwd())                # 当前工作目录
+os.listdir('.')                   # 列出目录内容
+
+# JSON 模块
+import json
+data = {"name": "Alice", "age": 20}
+json_str = json.dumps(data)       # 转换为JSON字符串
+parsed_data = json.loads(json_str) # 解析JSON字符串
+```
+
+### 自定义模块
+```python
+# 创建模块文件 mymodule.py
+# mymodule.py 内容:
+def greet(name):
+    return f"Hello, {name}!"
+
+PI = 3.14159
+
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+# 在其他文件中使用
+import mymodule
+print(mymodule.greet("Alice"))
+print(mymodule.PI)
+
+calc = mymodule.Calculator()
+print(calc.add(2, 3))
+
+# 或者
+from mymodule import greet, PI, Calculator
+print(greet("Bob"))
+```
+
+---
+
+## 自定义函数
+
+### 基本函数定义
+```python
+# 简单函数
+def greet():
+    print("Hello, World!")
+
+greet()  # 调用函数
+
+# 带参数的函数
+def greet_person(name):
+    print(f"Hello, {name}!")
+
+greet_person("Alice")
+
+# 带返回值的函数
+def add(a, b):
+    return a + b
+
+result = add(3, 5)  # result = 8
+```
+
+### 函数参数
+```python
+# 默认参数
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+
+print(greet("Alice"))              # "Hello, Alice!"
+print(greet("Bob", "Hi"))          # "Hi, Bob!"
+
+# 关键字参数
+def introduce(name, age, city):
+    return f"我叫{name}，{age}岁，来自{city}"
+
+print(introduce("Alice", 20, "北京"))
+print(introduce(age=25, name="Bob", city="上海"))
+
+# 可变参数
+def sum_all(*args):
+    return sum(args)
+
+print(sum_all(1, 2, 3, 4, 5))  # 15
+
+# 关键字可变参数
+def print_info(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=20, city="北京")
+
+# 混合参数
+def complex_function(required, default="default", *args, **kwargs):
+    print(f"必需参数: {required}")
+    print(f"默认参数: {default}")
+    print(f"可变参数: {args}")
+    print(f"关键字参数: {kwargs}")
+
+complex_function("必需值", "自定义默认", 1, 2, 3, name="Alice", age=20)
+```
+
+### 函数作用域
+```python
+# 全局变量和局部变量
+global_var = "我是全局变量"
+
+def test_scope():
+    local_var = "我是局部变量"
+    print(global_var)  # 可以访问全局变量
+    print(local_var)   # 可以访问局部变量
+
+test_scope()
+# print(local_var)  # 错误：无法访问局部变量
+
+# 修改全局变量
+counter = 0
+
+def increment():
+    global counter
+    counter += 1
+
+increment()
+print(counter)  # 1
+
+# nonlocal 关键字
+def outer():
+    x = 10
+
+    def inner():
+        nonlocal x
+        x += 1
+        return x
+
+    return inner
+
+func = outer()
+print(func())  # 11
+print(func())  # 12
+```
+
+### 高级函数特性
+```python
+# 函数作为参数
+def apply_operation(func, a, b):
+    return func(a, b)
+
+def multiply(x, y):
+    return x * y
+
+result = apply_operation(multiply, 3, 4)  # 12
+
+# Lambda 函数
+square = lambda x: x ** 2
+print(square(5))  # 25
+
+# 在高阶函数中使用 lambda
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))  # [1, 4, 9, 16, 25]
+evens = list(filter(lambda x: x % 2 == 0, numbers))  # [2, 4]
+
+# 函数装饰器（简单示例）
+def timer_decorator(func):
+    import time
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f"函数 {func.__name__} 执行时间: {end - start:.4f} 秒")
+        return result
+    return wrapper
+
+@timer_decorator
+def slow_function():
+    import time
+    time.sleep(1)
+    return "完成"
+
+slow_function()  # 会显示执行时间
+```
