@@ -7,8 +7,8 @@ export default defineConfig({
   description: '本知识库服务于浙江省杭州高级中学选考技术学科的学生，包含信息技术和通用技术两部分内容，并优先专注于信息技术知识的梳理。',
   icon: '/HG.webp',
   logo: {
-    light: 'hgbanner-light.png',
-    dark: '/hgbanner-dark.png',
+    light: 'hgbanner-light.webp',
+    dark: '/hgbanner-dark.webp',
   },
   themeConfig: {
     socialLinks: [
