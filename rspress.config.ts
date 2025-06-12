@@ -36,6 +36,10 @@ export default defineConfig({
           text: '算法',
           items: [
             {
+              text: '算法概览',
+              link: '/information-technology/algorithms/',
+            },
+            {
               text: '算法基础概念与效率',
               link: '/information-technology/algorithms/algorithm-concepts/efficiency-and-concepts',
             },
@@ -53,15 +57,6 @@ export default defineConfig({
               ],
             },
             {
-              text: '排序算法',
-              items: [
-                {
-                  text: '冒泡排序',
-                  link: '/information-technology/algorithms/sorting/bubble-sort',
-                },
-              ],
-            },
-            {
               text: '查找算法',
               items: [
                 {
@@ -71,6 +66,23 @@ export default defineConfig({
                 {
                   text: '二分查找（对分查找）',
                   link: '/information-technology/algorithms/searching/binary-search',
+                },
+              ],
+            },
+            {
+              text: '排序算法',
+              items: [
+                {
+                  text: '冒泡排序',
+                  link: '/information-technology/algorithms/sorting/bubble-sort',
+                },
+                {
+                  text: '选择排序',
+                  link: '/information-technology/algorithms/sorting/selection-sort',
+                },
+                {
+                  text: '插入排序',
+                  link: '/information-technology/algorithms/sorting/insertion-sort',
                 },
               ],
             },
