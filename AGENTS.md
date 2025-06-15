@@ -19,16 +19,71 @@ HGTechKB/
 │   ├── _meta.json             # 文档元数据配置
 │   ├── index.md               # 首页内容
 │   ├── guide/                 # 指南文档
+│   │   ├── _meta.json         # 指南导航配置
+│   │   └── index.md           # 指南首页
 │   ├── information-technology/# 信息技术文档
+│   │   ├── _meta.json         # 信息技术导航配置
+│   │   ├── index.md           # 信息技术首页
 │   │   ├── algorithms/        # 算法相关内容
+│   │   │   ├── _meta.json     # 算法导航配置
+│   │   │   ├── index.md       # 算法概述
+│   │   │   ├── algorithm-concepts/ # 算法概念
+│   │   │   │   ├── _meta.json
+│   │   │   │   └── efficiency-and-concepts.md
+│   │   │   ├── basic-algorithms/   # 基本算法
+│   │   │   │   ├── _meta.json
+│   │   │   │   ├── iterative-algorithm.md
+│   │   │   │   └── recursive-algorithm.md
+│   │   │   ├── searching/     # 查找算法
+│   │   │   │   ├── _meta.json
+│   │   │   │   ├── sequential-search.md
+│   │   │   │   └── binary-search.md
+│   │   │   └── sorting/       # 排序算法
+│   │   │       ├── _meta.json
+│   │   │       ├── bubble-sort.md
+│   │   │       ├── selection-sort.md
+│   │   │       └── insertion-sort.md
 │   │   ├── basic-knowledge/   # 基础知识
+│   │   │   ├── information-systems-support-security.md
+│   │   │   ├── data-acquisition-encoding.md
+│   │   │   └── data-information-bigdata-ai.md
 │   │   └── programming-languages/ # 编程语言
-│   └── general-technology/    # 通用技术文档（待完善）
+│   │       ├── _meta.json     # 编程语言导航配置
+│   │       ├── index.md       # 编程语言概述
+│   │       └── python/        # Python编程
+│   │           ├── _meta.json # Python导航配置
+│   │           ├── index.md   # Python概述
+│   │           ├── python-basic-dictionary.md
+│   │           ├── python-pandas-matplotlib.md
+│   │           ├── arrays.md  # 数组（直接在python目录下）
+│   │           ├── strings.md # 字符串
+│   │           ├── queues.md  # 队列
+│   │           ├── stacks.md  # 栈
+│   │           ├── trees.md   # 树
+│   │           └── data-structures/ # 数据结构详细文档
+│   │               └── arrays.md    # 数组详细文档
+│   ├── general-technology/    # 通用技术文档（待完善）
+│   │   └── index.md           # 通用技术首页
+│   └── public/                # 静态资源
+│       ├── HG.webp            # 网站图标
+│       ├── hgbanner-light.webp # 浅色主题横幅
+│       └── hgbanner-dark.webp  # 深色主题横幅
 ├── .github/                   # GitHub相关配置
-│   └── PULL_REQUEST_TEMPLATE/ # PR模板目录
+│   ├── PULL_REQUEST_TEMPLATE/ # PR模板目录
+│   │   ├── new_document.md    # 新增文档模板
+│   │   ├── content_update.md  # 内容更新模板
+│   │   ├── bug_fix.md         # 错误修复模板
+│   │   └── feature_request.md # 功能请求模板
+│   └── pull_request_template.md # 默认PR模板
+├── doc_build/                 # 构建输出目录
+│   └── static/                # 静态文件输出
+├── node_modules/              # 依赖包目录
 ├── rspress.config.ts          # Rspress配置文件
 ├── package.json               # 项目依赖配置
-└── README.md                  # 项目说明文档
+├── pnpm-lock.yaml            # pnpm锁定文件
+├── tsconfig.json             # TypeScript配置
+├── AGENTS.md                 # Agent参考文档
+└── README.md                 # 项目说明文档
 ```
 
 ## 内容组织
@@ -86,7 +141,16 @@ HGTechKB/
     - 时间复杂度分析
     - Python代码实现
     - 文件路径：`/docs/information-technology/algorithms/sorting/bubble-sort.md`
-  - 其他排序算法（待添加）
+  - **选择排序**
+    - 算法原理与实现
+    - 时间复杂度分析
+    - Python代码实现
+    - 文件路径：`/docs/information-technology/algorithms/sorting/selection-sort.md`
+  - **插入排序**
+    - 算法原理与实现
+    - 时间复杂度分析
+    - Python代码实现
+    - 文件路径：`/docs/information-technology/algorithms/sorting/insertion-sort.md`
 
 - **查找算法**
   - **顺序查找**
@@ -105,39 +169,60 @@ HGTechKB/
 Python编程部分提供系统的Python语言学习资源：
 
 - **Python 基础知识概览**
-  - Python语言特点
-  - 开发环境搭建
-  - 基本语法规则
+  - Python语言特点与应用领域
+  - 开发环境搭建指南
+  - 基本语法规则介绍
+  - 学习路径规划
   - 文件路径：`/docs/information-technology/programming-languages/python/index.md`
 
 - **Python 基础知识字典**
-  - 变量与数据类型
-  - 运算符与表达式
-  - 控制结构
-  - 函数定义与调用
+  - 数据类型（整数、浮点数、字符串、布尔值）
+  - 变量与赋值操作
+  - 字符串操作与方法
+  - 列表与字典操作
+  - 输入输出与文件操作
+  - 分支结构与循环结构
+  - 模块导入与自定义函数
   - 文件路径：`/docs/information-technology/programming-languages/python/python-basic-dictionary.md`
+
+- **Pandas 与 Matplotlib**
+  - Pandas数据分析基础
+  - DataFrame创建与操作
+  - 数据清洗与处理
+  - Matplotlib基本绘图
+  - 图形类型与样式设置
+  - 数据可视化实践
+  - 文件路径：`/docs/information-technology/programming-languages/python/python-pandas-matplotlib.md`
 
 - **数据结构**
   - **数组**
-    - 数组的概念与特点
-    - Python中的列表操作
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/arrays.md`
+    - 数组概念与特征
+    - Python列表作为动态数组
+    - array模块的使用
+    - 一维与多维数组操作
+    - 使用数组模拟链表
+    - 文件路径：`/docs/information-technology/programming-languages/python/arrays.md`
+    - 详细文档：`/docs/information-technology/programming-languages/python/data-structures/arrays.md`
   - **字符串**
     - 字符串的特点与操作
     - 常用字符串方法
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/strings.md`
+    - 字符串格式化
+    - 文件路径：`/docs/information-technology/programming-languages/python/strings.md`
   - **队列**
-    - 队列的概念与特点
-    - Python实现队列
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/queues.md`
+    - 队列的FIFO概念与特点
+    - Python实现队列的多种方式
+    - 队列的应用场景
+    - 文件路径：`/docs/information-technology/programming-languages/python/queues.md`
   - **栈**
-    - 栈的概念与特点
-    - Python实现栈
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/stacks.md`
+    - 栈的LIFO概念与特点
+    - Python实现栈的方法
+    - 栈的应用实例
+    - 文件路径：`/docs/information-technology/programming-languages/python/stacks.md`
   - **树**
-    - 树的概念与特点
-    - 二叉树的实现
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/trees.md`
+    - 树的基本概念与术语
+    - 二叉树的定义与性质
+    - 树的遍历算法
+    - 文件路径：`/docs/information-technology/programming-languages/python/trees.md`
 
 ### 通用技术部分
 
@@ -248,6 +333,31 @@ Python编程部分提供系统的Python语言学习资源：
 - `fix: 修正算法复杂度分析中的错误`
 - `feat: 添加交互式算法演示组件`
 
+### Pull Request 模板
+
+项目提供了多个PR模板以适应不同类型的贡献：
+
+#### 1. 新增文档模板 (`new_document.md`)
+用于提交新增知识库文档的PR，包含以下检查项：
+- 文档信息（标题、路径、所属领域）
+- 文档内容概述
+- 相关教学大纲
+- 文档结构说明
+- 元数据更新情况
+- 内容质量检查清单
+
+#### 2. 内容更新模板 (`content_update.md`)
+用于更新现有文档内容的PR
+
+#### 3. 错误修复模板 (`bug_fix.md`)
+用于修复文档错误或网站问题的PR
+
+#### 4. 功能请求模板 (`feature_request.md`)
+用于添加新功能或改进现有功能的PR
+
+#### 5. 默认模板 (`pull_request_template.md`)
+通用PR模板，适用于其他类型的贡献
+
 ### 内容更新流程
 
 1. 确认更新内容所属的知识领域和具体位置
@@ -277,35 +387,87 @@ Python编程部分提供系统的Python语言学习资源：
 
 ### 开发环境
 
-1. **依赖管理**：使用pnpm作为包管理工具
+#### 技术栈详情
+- **框架**：Rspress v1.44.0（基于React的静态站点生成器）
+- **包管理器**：pnpm（推荐）或 npm
+- **TypeScript**：支持TypeScript配置
+- **构建工具**：内置Rsbuild构建系统
+- **部署平台**：Vercel
+
+#### 项目依赖
+**生产依赖**：
+- `rspress`: ^1.40.2 - 静态站点生成器核心
+
+**开发依赖**：
+- `@types/node`: ^18.11.17 - Node.js类型定义
+
+1. **依赖管理**：推荐使用pnpm作为包管理工具
    ```bash
    # 安装依赖
    pnpm install
-   
+
    # 添加新依赖
    pnpm add <package-name>
-   
+
    # 添加开发依赖
    pnpm add -D <package-name>
+
+   # 更新依赖
+   pnpm update
+
+   # 查看依赖树
+   pnpm list
    ```
 
 2. **本地开发**：使用`pnpm dev`启动开发服务器
    ```bash
    # 启动开发服务器
    pnpm dev
-   
+
    # 默认访问地址
    # http://localhost:3000
+
+   # 也可以使用npm（如果没有pnpm）
+   npm run dev
    ```
 
 3. **构建部署**：使用`pnpm build`构建生产版本
    ```bash
    # 构建生产版本
    pnpm build
-   
+
    # 预览构建结果
    pnpm preview
+
+   # 使用npm的等效命令
+   npm run build
+   npm run preview
    ```
+
+#### 配置文件说明
+- **rspress.config.ts**：Rspress主配置文件，包含站点标题、描述、主题配置等
+- **tsconfig.json**：TypeScript编译配置
+- **package.json**：项目元数据和脚本配置
+- **pnpm-lock.yaml**：依赖版本锁定文件
+
+#### 网站配置详情
+**基本信息**：
+- 站点标题：浙江省杭州高级中学 技术学科知识库
+- 站点描述：本知识库服务于浙江省杭州高级中学选考技术学科的学生，包含信息技术和通用技术两部分内容，并优先专注于信息技术知识的梳理
+- 网站图标：`/HG.webp`
+- Logo配置：
+  - 浅色主题：`hgbanner-light.webp`
+  - 深色主题：`/hgbanner-dark.webp`
+
+**导航结构**：
+- 信息技术：`/information-technology/basic-knowledge/information-systems-support-security`
+- 通用技术：`/general-technology/`
+- 首页：`/`
+
+**侧边栏配置**：
+- 信息技术基础知识（3个主要文档）
+- 算法（4个子分类：概念、基本算法、查找、排序）
+- Python编程（基础知识、数据结构、实用工具）
 
 ### 版本控制与协作
 
@@ -343,5 +505,12 @@ Python编程部分提供系统的Python语言学习资源：
 
 ## 更新日志
 
+- **2025-06-15**：使用ContextEngine全面修正和补全AGENTS.md文档
+  - 修正仓库结构，反映实际文件组织
+  - 更新Python编程部分，添加实际存在的文档路径
+  - 补全技术栈详情和依赖信息
+  - 添加完整的PR模板说明
+  - 更新排序算法部分，包含选择排序和插入排序
+  - 修正文件路径错误，确保与实际项目结构一致
 - **2025-05-21**：更新Agent Reference文档，添加约定式提交规范和详细的技术维护指南
 - **2025-05-18**：项目初始化，建立基本框架和内容结构
