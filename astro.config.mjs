@@ -9,8 +9,16 @@ export default defineConfig({
       title: '浙江省杭州高级中学 技术学科知识库',
       sidebar: [
         {
-          label: '文档',
-          autogenerate: { directory: '.' },
+          label: '指南',
+          autogenerate: { directory: 'guide' },
+        },
+        {
+          label: '信息技术',
+          autogenerate: { directory: 'information-technology' },
+        },
+        {
+          label: '通用技术',
+          autogenerate: { directory: 'general-technology' },
         },
       ],
     }),

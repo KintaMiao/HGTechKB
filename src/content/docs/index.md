@@ -4,11 +4,16 @@ description: 为杭州高级中学技术学科选考生提供的信息技术与�
 pageType: home
 
 hero:
-  name: 杭高技术学科知识库
-  text: |
+  title: 杭高技术学科知识库
+  tagline: |
     为技术选考生准备的
     知识宝典
-  tagline: 涵盖信息技术与通用技术，助力技术学科学习。
+  image:
+    html: |
+      <picture>
+        <source srcset="/hgbanner-light.webp" media="(prefers-color-scheme: light)">
+        <img src="/hgbanner-dark.webp" alt="学校横幅" />
+      </picture>
   actions:
     - theme: brand
       text: 开始学习
