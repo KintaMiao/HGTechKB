@@ -8,25 +8,26 @@
 - **项目性质**：浙江省杭州高级中学（简称杭州高级中学或杭高）校内技术学科知识库
 - **目标受众**：校内选考技术学科的学生
 - **内容范围**：信息技术和通用技术两大领域，当前优先专注于信息技术的知识梳理
-- **技术栈**：基于Rspress（React静态站点生成器）构建
+- **技术栈**：基于 Astro Starlight 构建
 - **线上地址**：https://hg-tech-kb.vercel.app
 
 ## 仓库结构
 
 ```
 HGTechKB/
-├── docs/                      # 文档主目录
-│   ├── _meta.json             # 文档元数据配置
-│   ├── index.md               # 首页内容
-│   ├── guide/                 # 指南文档
-│   ├── information-technology/# 信息技术文档
-│   │   ├── algorithms/        # 算法相关内容
-│   │   ├── basic-knowledge/   # 基础知识
-│   │   └── programming-languages/ # 编程语言
-│   └── general-technology/    # 通用技术文档（待完善）
+├── src/
+│   └── content/docs/          # 文档主目录
+│       ├── index.md           # 首页内容
+│       ├── guide/             # 指南文档
+│       ├── information-technology/ # 信息技术文档
+│       │   ├── algorithms/    # 算法相关内容
+│       │   ├── basic-knowledge/ # 基础知识
+│       │   └── programming-languages/ # 编程语言
+│       └── general-technology/ # 通用技术文档（待完善）
+├── public/                    # 静态资源目录
 ├── .github/                   # GitHub相关配置
 │   └── PULL_REQUEST_TEMPLATE/ # PR模板目录
-├── rspress.config.ts          # Rspress配置文件
+├── astro.config.mjs           # Astro 配置文件
 ├── package.json               # 项目依赖配置
 └── README.md                  # 项目说明文档
 ```
