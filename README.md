@@ -38,7 +38,8 @@
 
 ## 技术栈
 
-本项目使用 [Rspress](https://rspress.dev/) 构建，这是一个基于 React 的静态站点生成器。
+本项目现已迁移至 [Astro Starlight](https://starlight.astro.build/) 框架构建，
+带来更灵活的文档编写体验。
 
 ## 开发指南
 
@@ -47,8 +48,6 @@
 安装依赖：
 
 ```bash
-npm install
-# 或者使用 pnpm
 pnpm install
 ```
 
@@ -57,8 +56,6 @@ pnpm install
 启动开发服务器：
 
 ```bash
-npm run dev
-# 或者使用 pnpm
 pnpm dev
 ```
 
@@ -67,16 +64,12 @@ pnpm dev
 构建生产版本：
 
 ```bash
-npm run build
-# 或者使用 pnpm
 pnpm build
 ```
 
 本地预览生产构建：
 
 ```bash
-npm run preview
-# 或者使用 pnpm
 pnpm preview
 ```
 

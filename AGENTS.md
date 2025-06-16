@@ -8,82 +8,35 @@
 - **项目性质**：浙江省杭州高级中学（简称杭州高级中学或杭高）校内技术学科知识库
 - **目标受众**：校内选考技术学科的学生
 - **内容范围**：信息技术和通用技术两大领域，当前优先专注于信息技术的知识梳理
-- **技术栈**：基于Rspress（React静态站点生成器）构建
+- **技术栈**：基于Astro Starlight构建
 - **线上地址**：https://hg-tech-kb.vercel.app
 
 ## 仓库结构
 
 ```
 HGTechKB/
-├── docs/                      # 文档主目录
-│   ├── _meta.json             # 文档元数据配置
-│   ├── index.md               # 首页内容
-│   ├── guide/                 # 指南文档
-│   │   ├── _meta.json         # 指南导航配置
-│   │   └── index.md           # 指南首页
-│   ├── information-technology/# 信息技术文档
-│   │   ├── _meta.json         # 信息技术导航配置
-│   │   ├── index.md           # 信息技术首页
-│   │   ├── algorithms/        # 算法相关内容
-│   │   │   ├── _meta.json     # 算法导航配置
-│   │   │   ├── index.md       # 算法概述
-│   │   │   ├── algorithm-concepts/ # 算法概念
-│   │   │   │   ├── _meta.json
-│   │   │   │   └── efficiency-and-concepts.md
-│   │   │   ├── basic-algorithms/   # 基本算法
-│   │   │   │   ├── _meta.json
-│   │   │   │   ├── iterative-algorithm.md
-│   │   │   │   └── recursive-algorithm.md
-│   │   │   ├── searching/     # 查找算法
-│   │   │   │   ├── _meta.json
-│   │   │   │   ├── sequential-search.md
-│   │   │   │   └── binary-search.md
-│   │   │   └── sorting/       # 排序算法
-│   │   │       ├── _meta.json
-│   │   │       ├── bubble-sort.md
-│   │   │       ├── selection-sort.md
-│   │   │       └── insertion-sort.md
-│   │   ├── basic-knowledge/   # 基础知识
-│   │   │   ├── information-systems-support-security.md
-│   │   │   ├── data-acquisition-encoding.md
-│   │   │   └── data-information-bigdata-ai.md
-│   │   └── programming-languages/ # 编程语言
-│   │       ├── _meta.json     # 编程语言导航配置
-│   │       ├── index.md       # 编程语言概述
-│   │       └── python/        # Python编程
-│   │           ├── _meta.json # Python导航配置
-│   │           ├── index.md   # Python概述
-│   │           ├── python-basic-dictionary.md
-│   │           ├── python-pandas-matplotlib.md
-│   │           ├── arrays.md  # 数组（直接在python目录下）
-│   │           ├── strings.md # 字符串
-│   │           ├── queues.md  # 队列
-│   │           ├── stacks.md  # 栈
-│   │           ├── trees.md   # 树
-│   │           └── data-structures/ # 数据结构详细文档
-│   │               └── arrays.md    # 数组详细文档
-│   ├── general-technology/    # 通用技术文档（待完善）
-│   │   └── index.md           # 通用技术首页
-│   └── public/                # 静态资源
-│       ├── HG.webp            # 网站图标
-│       ├── hgbanner-light.webp # 浅色主题横幅
-│       └── hgbanner-dark.webp  # 深色主题横幅
-├── .github/                   # GitHub相关配置
-│   ├── PULL_REQUEST_TEMPLATE/ # PR模板目录
-│   │   ├── new_document.md    # 新增文档模板
-│   │   ├── content_update.md  # 内容更新模板
-│   │   ├── bug_fix.md         # 错误修复模板
-│   │   └── feature_request.md # 功能请求模板
-│   └── pull_request_template.md # 默认PR模板
-├── doc_build/                 # 构建输出目录
-│   └── static/                # 静态文件输出
-├── node_modules/              # 依赖包目录
-├── rspress.config.ts          # Rspress配置文件
+├── public/                    # 静态资源
+│   ├── HG.webp                # 网站图标
+│   ├── hgbanner-light.webp    # 浅色主题横幅
+│   └── hgbanner-dark.webp     # 深色主题横幅
+├── src/
+│   ├── content.config.ts      # Starlight内容配置
+│   └── content/
+│       └── docs/              # 文档主目录
+│           ├── index.md       # 首页内容
+│           ├── guide/         # 指南文档
+│           │   └── index.md
+│           ├── information-technology/  # 信息技术文档
+│           │   ├── algorithms/
+│           │   ├── basic-knowledge/
+│           │   └── programming-languages/
+│           └── general-technology/       # 通用技术文档
+├── astro.config.mjs           # Astro配置文件
 ├── package.json               # 项目依赖配置
-├── pnpm-lock.yaml            # pnpm锁定文件
-├── tsconfig.json             # TypeScript配置
-├── AGENTS.md                 # Agent参考文档
-└── README.md                 # 项目说明文档
+├── pnpm-lock.yaml             # pnpm锁定文件
+├── tsconfig.json              # TypeScript配置
+├── AGENTS.md                  # Agent参考文档
+└── README.md                  # 项目说明文档
 ```
 
 ## 内容组织
@@ -100,19 +53,19 @@ HGTechKB/
   - 信息系统的组成与功能
   - 信息技术的支撑技术
   - 信息安全基本概念与防护措施
-  - 文件路径：`/docs/information-technology/basic-knowledge/information-systems-support-security.md`
+  - 文件路径：`/src/content/docs/information-technology/basic-knowledge/information-systems-support-security.md`
 
 - **数据采集与编码**
   - 数据采集的方法与技术
   - 数据编码的原理与应用
   - 常见编码方式（ASCII、Unicode等）
-  - 文件路径：`/docs/information-technology/basic-knowledge/data-acquisition-encoding.md`
+  - 文件路径：`/src/content/docs/information-technology/basic-knowledge/data-acquisition-encoding.md`
 
 - **数据、信息、大数据及人工智能**
   - 数据与信息的关系
   - 大数据的特点与应用
   - 人工智能基础概念
-  - 文件路径：`/docs/information-technology/basic-knowledge/data-information-bigdata-ai.md`
+  - 文件路径：`/src/content/docs/information-technology/basic-knowledge/data-information-bigdata-ai.md`
 
 #### 2. 算法
 
@@ -122,47 +75,47 @@ HGTechKB/
   - 算法的定义与特性
   - 时间复杂度与空间复杂度
   - 算法效率分析方法
-  - 文件路径：`/docs/information-technology/algorithms/algorithm-concepts/efficiency-and-concepts.md`
+  - 文件路径：`/src/content/docs/information-technology/algorithms/algorithm-concepts/efficiency-and-concepts.md`
 
 - **基本算法**
   - **迭代算法**
     - 迭代的概念与应用
     - 迭代算法示例
-    - 文件路径：`/docs/information-technology/algorithms/basic-algorithms/iterative-algorithm.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/basic-algorithms/iterative-algorithm.md`
   - **递归算法**
     - 递归的概念与应用
     - 递归算法示例
     - 递归与迭代的比较
-    - 文件路径：`/docs/information-technology/algorithms/basic-algorithms/recursive-algorithm.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/basic-algorithms/recursive-algorithm.md`
 
 - **排序算法**
   - **冒泡排序**
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/sorting/bubble-sort.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/sorting/bubble-sort.md`
   - **选择排序**
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/sorting/selection-sort.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/sorting/selection-sort.md`
   - **插入排序**
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/sorting/insertion-sort.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/sorting/insertion-sort.md`
 
 - **查找算法**
   - **顺序查找**
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/searching/sequential-search.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/searching/sequential-search.md`
   - **二分查找（对分查找）**
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/searching/binary-search.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/searching/binary-search.md`
 
 #### 3. Python 编程
 
@@ -173,7 +126,7 @@ Python编程部分提供系统的Python语言学习资源：
   - 开发环境搭建指南
   - 基本语法规则介绍
   - 学习路径规划
-  - 文件路径：`/docs/information-technology/programming-languages/python/index.md`
+  - 文件路径：`/src/content/docs/information-technology/programming-languages/python/index.md`
 
 - **Python 基础知识字典**
   - 数据类型（整数、浮点数、字符串、布尔值）
@@ -183,7 +136,7 @@ Python编程部分提供系统的Python语言学习资源：
   - 输入输出与文件操作
   - 分支结构与循环结构
   - 模块导入与自定义函数
-  - 文件路径：`/docs/information-technology/programming-languages/python/python-basic-dictionary.md`
+  - 文件路径：`/src/content/docs/information-technology/programming-languages/python/python-basic-dictionary.md`
 
 - **Pandas 与 Matplotlib**
   - Pandas数据分析基础
@@ -192,7 +145,7 @@ Python编程部分提供系统的Python语言学习资源：
   - Matplotlib基本绘图
   - 图形类型与样式设置
   - 数据可视化实践
-  - 文件路径：`/docs/information-technology/programming-languages/python/python-pandas-matplotlib.md`
+  - 文件路径：`/src/content/docs/information-technology/programming-languages/python/python-pandas-matplotlib.md`
 
 - **数据结构**
   - **数组**
@@ -201,28 +154,28 @@ Python编程部分提供系统的Python语言学习资源：
     - array模块的使用
     - 一维与多维数组操作
     - 使用数组模拟链表
-    - 文件路径：`/docs/information-technology/programming-languages/python/arrays.md`
-    - 详细文档：`/docs/information-technology/programming-languages/python/data-structures/arrays.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/arrays.md`
+    - 详细文档：`/src/content/docs/information-technology/programming-languages/python/data-structures/arrays.md`
   - **字符串**
     - 字符串的特点与操作
     - 常用字符串方法
     - 字符串格式化
-    - 文件路径：`/docs/information-technology/programming-languages/python/strings.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/strings.md`
   - **队列**
     - 队列的FIFO概念与特点
     - Python实现队列的多种方式
     - 队列的应用场景
-    - 文件路径：`/docs/information-technology/programming-languages/python/queues.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/queues.md`
   - **栈**
     - 栈的LIFO概念与特点
     - Python实现栈的方法
     - 栈的应用实例
-    - 文件路径：`/docs/information-technology/programming-languages/python/stacks.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/stacks.md`
   - **树**
     - 树的基本概念与术语
     - 二叉树的定义与性质
     - 树的遍历算法
-    - 文件路径：`/docs/information-technology/programming-languages/python/trees.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/trees.md`
 
 ### 通用技术部分
 
@@ -261,7 +214,7 @@ Python编程部分提供系统的Python语言学习资源：
    - 列表嵌套时使用四个空格缩进
 
 5. **图片**：
-   - 图片文件存放在`/docs/public/images/`目录下
+   - 图片文件存放在`/public/images/`目录下
    - 图片引用格式：`![替代文本](/images/图片路径.png)`
    - 图片应包含适当的替代文本
 
@@ -278,16 +231,7 @@ Python编程部分提供系统的Python语言学习资源：
    - 目录深度不宜超过三层
 
 3. **元数据**：
-   - 每个目录包含`_meta.json`文件定义导航结构
-   - `_meta.json`文件格式示例：
-     ```json
-     {
-       "index": "概述",
-       "basic-algorithms": "基本算法",
-       "sorting": "排序算法",
-       "searching": "查找算法"
-     }
-     ```
+    - 使用 Starlight 的自動側邊欄功能，無需 _meta.json 配置
 
 ### 内容风格规范
 
@@ -369,7 +313,7 @@ Python编程部分提供系统的Python语言学习资源：
 ### 新增文档流程
 
 1. 在适当的目录下创建新的Markdown文件
-2. 更新相应的`_meta.json`文件以包含新文档
+2. 提交后 Starlight 会自动生成导航，无需修改 `_meta.json`
 3. 确保新文档与现有知识体系保持一致性
 4. 使用约定式提交格式提交更改（通常使用`docs:`类型）
 5. 提交PR时使用"新增文档模板"
@@ -388,7 +332,7 @@ Python编程部分提供系统的Python语言学习资源：
 ### 开发环境
 
 #### 技术栈详情
-- **框架**：Rspress v1.44.0（基于React的静态站点生成器）
+- **框架**：Astro Starlight
 - **包管理器**：pnpm（推荐）或 npm
 - **TypeScript**：支持TypeScript配置
 - **构建工具**：内置Rsbuild构建系统
@@ -396,7 +340,9 @@ Python编程部分提供系统的Python语言学习资源：
 
 #### 项目依赖
 **生产依赖**：
-- `rspress`: ^1.40.2 - 静态站点生成器核心
+- `@astrojs/starlight`: ^0.34.4 - 文档站构建框架
+- `astro`: ^5.6.1 - 静态站点生成器核心
+- `sharp`: ^0.32.5 - 图片处理工具
 
 **开发依赖**：
 - `@types/node`: ^18.11.17 - Node.js类型定义
@@ -445,7 +391,7 @@ Python编程部分提供系统的Python语言学习资源：
    ```
 
 #### 配置文件说明
-- **rspress.config.ts**：Rspress主配置文件，包含站点标题、描述、主题配置等
+- **astro.config.mjs**：Astro主配置文件，包含站点标题、描述、主题配置等
 - **tsconfig.json**：TypeScript编译配置
 - **package.json**：项目元数据和脚本配置
 - **pnpm-lock.yaml**：依赖版本锁定文件
@@ -505,6 +451,7 @@ Python编程部分提供系统的Python语言学习资源：
 
 ## 更新日志
 
+- **2025-06-16**：迁移文档站至 Astro Starlight，更新仓库结构说明
 - **2025-06-15**：使用ContextEngine全面修正和补全AGENTS.md文档
   - 修正仓库结构，反映实际文件组织
   - 更新Python编程部分，添加实际存在的文档路径
@@ -512,5 +459,4 @@ Python编程部分提供系统的Python语言学习资源：
   - 添加完整的PR模板说明
   - 更新排序算法部分，包含选择排序和插入排序
   - 修正文件路径错误，确保与实际项目结构一致
-- **2025-05-21**：更新Agent Reference文档，添加约定式提交规范和详细的技术维护指南
 - **2025-05-18**：项目初始化，建立基本框架和内容结构
