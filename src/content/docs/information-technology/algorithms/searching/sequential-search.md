@@ -1,3 +1,7 @@
+---
+title: 顺序查找 (Sequential Search)
+---
+
 # 顺序查找 (Sequential Search)
 
 ## 概念

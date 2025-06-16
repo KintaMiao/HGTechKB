@@ -1,3 +1,7 @@
+---
+title: Pandas 和 Matplotlib 基本用法
+---
+
 # Pandas 和 Matplotlib 基本用法
 
 本文档详细介绍 Pandas 和 Matplotlib 的基本用法，为数据分析和可视化提供全面的参考指南。

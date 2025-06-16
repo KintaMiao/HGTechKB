@@ -1,6 +1,6 @@
 ---
-pageType: guide
 title: 杭高技术学科知识库导航
+description: 技术学科知识库导航
 ---
 
 # 杭高技术学科知识库
