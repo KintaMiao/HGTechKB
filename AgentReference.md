@@ -8,14 +8,16 @@
 - **项目性质**：浙江省杭州高级中学（简称杭州高级中学或杭高）校内技术学科知识库
 - **目标受众**：校内选考技术学科的学生
 - **内容范围**：信息技术和通用技术两大领域，当前优先专注于信息技术的知识梳理
-- **技术栈**：基于Rspress（React静态站点生成器）构建
+- **技术栈**：基于 Astro Starlight 构建
 - **线上地址**：https://hg-tech-kb.vercel.app
 
 ## 仓库结构
 
 ```
 HGTechKB/
-├── docs/                      # 文档主目录
+├── src/
+│   └── content/
+│       └── docs/              # 文档主目录
 │   ├── _meta.json             # 文档元数据配置
 │   ├── index.md               # 首页内容
 │   ├── guide/                 # 指南文档
@@ -26,7 +28,6 @@ HGTechKB/
 │   └── general-technology/    # 通用技术文档（待完善）
 ├── .github/                   # GitHub相关配置
 │   └── PULL_REQUEST_TEMPLATE/ # PR模板目录
-├── rspress.config.ts          # Rspress配置文件
 ├── package.json               # 项目依赖配置
 └── README.md                  # 项目说明文档
 ```
@@ -45,19 +46,19 @@ HGTechKB/
   - 信息系统的组成与功能
   - 信息技术的支撑技术
   - 信息安全基本概念与防护措施
-  - 文件路径：`/docs/information-technology/basic-knowledge/information-systems-support-security.md`
+  - 文件路径：`/src/content/docs/information-technology/basic-knowledge/information-systems-support-security.md`
 
 - **数据采集与编码**
   - 数据采集的方法与技术
   - 数据编码的原理与应用
   - 常见编码方式（ASCII、Unicode等）
-  - 文件路径：`/docs/information-technology/basic-knowledge/data-acquisition-encoding.md`
+  - 文件路径：`/src/content/docs/information-technology/basic-knowledge/data-acquisition-encoding.md`
 
 - **数据、信息、大数据及人工智能**
   - 数据与信息的关系
   - 大数据的特点与应用
   - 人工智能基础概念
-  - 文件路径：`/docs/information-technology/basic-knowledge/data-information-bigdata-ai.md`
+  - 文件路径：`/src/content/docs/information-technology/basic-knowledge/data-information-bigdata-ai.md`
 
 #### 2. 算法
 
@@ -67,25 +68,25 @@ HGTechKB/
   - 算法的定义与特性
   - 时间复杂度与空间复杂度
   - 算法效率分析方法
-  - 文件路径：`/docs/information-technology/algorithms/algorithm-concepts/efficiency-and-concepts.md`
+  - 文件路径：`/src/content/docs/information-technology/algorithms/algorithm-concepts/efficiency-and-concepts.md`
 
 - **基本算法**
   - **迭代算法**
     - 迭代的概念与应用
     - 迭代算法示例
-    - 文件路径：`/docs/information-technology/algorithms/basic-algorithms/iterative-algorithm.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/basic-algorithms/iterative-algorithm.md`
   - **递归算法**
     - 递归的概念与应用
     - 递归算法示例
     - 递归与迭代的比较
-    - 文件路径：`/docs/information-technology/algorithms/basic-algorithms/recursive-algorithm.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/basic-algorithms/recursive-algorithm.md`
 
 - **排序算法**
   - **冒泡排序**
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/sorting/bubble-sort.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/sorting/bubble-sort.md`
   - 其他排序算法（待添加）
 
 - **查找算法**
@@ -93,12 +94,12 @@ HGTechKB/
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/searching/sequential-search.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/searching/sequential-search.md`
   - **二分查找（对分查找）**
     - 算法原理与实现
     - 时间复杂度分析
     - Python代码实现
-    - 文件路径：`/docs/information-technology/algorithms/searching/binary-search.md`
+    - 文件路径：`/src/content/docs/information-technology/algorithms/searching/binary-search.md`
 
 #### 3. Python 编程
 
@@ -108,36 +109,36 @@ Python编程部分提供系统的Python语言学习资源：
   - Python语言特点
   - 开发环境搭建
   - 基本语法规则
-  - 文件路径：`/docs/information-technology/programming-languages/python/index.md`
+  - 文件路径：`/src/content/docs/information-technology/programming-languages/python/index.md`
 
 - **Python 基础知识字典**
   - 变量与数据类型
   - 运算符与表达式
   - 控制结构
   - 函数定义与调用
-  - 文件路径：`/docs/information-technology/programming-languages/python/python-basic-dictionary.md`
+  - 文件路径：`/src/content/docs/information-technology/programming-languages/python/python-basic-dictionary.md`
 
 - **数据结构**
   - **数组**
     - 数组的概念与特点
     - Python中的列表操作
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/arrays.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/data-structures/arrays.md`
   - **字符串**
     - 字符串的特点与操作
     - 常用字符串方法
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/strings.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/data-structures/strings.md`
   - **队列**
     - 队列的概念与特点
     - Python实现队列
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/queues.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/data-structures/queues.md`
   - **栈**
     - 栈的概念与特点
     - Python实现栈
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/stacks.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/data-structures/stacks.md`
   - **树**
     - 树的概念与特点
     - 二叉树的实现
-    - 文件路径：`/docs/information-technology/programming-languages/python/data-structures/trees.md`
+    - 文件路径：`/src/content/docs/information-technology/programming-languages/python/data-structures/trees.md`
 
 ### 通用技术部分
 
@@ -176,7 +177,7 @@ Python编程部分提供系统的Python语言学习资源：
    - 列表嵌套时使用四个空格缩进
 
 5. **图片**：
-   - 图片文件存放在`/docs/public/images/`目录下
+   - 图片文件存放在`/public/`目录下
    - 图片引用格式：`![替代文本](/images/图片路径.png)`
    - 图片应包含适当的替代文本
 

@@ -1,4 +1,5 @@
 ---
+title: 杭高技术学科知识库
 pageType: home
 
 hero:
