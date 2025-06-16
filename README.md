@@ -38,7 +38,7 @@
 
 ## 技术栈
 
-本项目使用 [Rspress](https://rspress.dev/) 构建，这是一个基于 React 的静态站点生成器。
+本项目现已使用 [Astro Starlight](https://starlight.astro.build) 构建，提供轻量而灵活的文档站点框架。
 
 ## 开发指南
 
