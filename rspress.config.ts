@@ -141,6 +141,10 @@ export default defineConfig({
         link: '/general-technology/', // 待定
         activeMatch: '/general-technology/',
       },
+      {
+        text: 'AI 智能助手',
+        link: '/ai-assistant',
+      },
     ],
   },
 });
