@@ -5,12 +5,17 @@
   "scripts": {
     "build": "rspress build",
     "dev": "rspress dev",
-    "preview": "rspress preview"
+    "preview": "rspress preview",
+    "serve": "rspress preview",
+    "clean": "rimraf doc_build dist",
+    "lint": "tsc --noEmit",
+    "build:analyze": "rspress build --analyze"
   },
   "dependencies": {
     "rspress": "^1.40.2"
   },
   "devDependencies": {
-    "@types/node": "^18.11.17"
+    "@types/node": "^18.11.17",
+    "rimraf": "^5.0.5"
   }
 }

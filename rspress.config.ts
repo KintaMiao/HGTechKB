@@ -7,11 +7,46 @@ export default defineConfig({
   description: '本知识库服务于浙江省杭州高级中学选考技术学科的学生，包含信息技术和通用技术两部分内容，并优先专注于信息技术知识的梳理。',
   icon: '/HG.webp',
   logo: {
-    light: 'hgbanner-light.webp',
+    light: '/hgbanner-light.webp',
     dark: '/hgbanner-dark.webp',
   },
+  // SEO优化
+  lang: 'zh-CN',
+  // 性能优化
+  mediumZoom: true,
+  search: {
+    codeBlocks: true,
+  },
+  // 路由优化
+  route: {
+    cleanUrls: true,
+  },
+  // 全局组件
+  globalUIComponents: [
+    path.join(__dirname, 'docs/components/PerformanceOptimizer.tsx'),
+  ],
   themeConfig: {
+    // 启用最后更新时间
+    lastUpdated: true,
+    lastUpdatedText: '最后更新',
+    // 启用回到顶部按钮
+    enableScrollToTop: true,
+    // 启用页面切换动画
+    enableContentAnimation: true,
+    // 搜索配置
+    searchPlaceholderText: '搜索文档',
+    searchNoResultsText: '没有找到相关结果',
+    searchSuggestedQueryText: '请尝试使用其他关键词',
+    // 页面导航文本
+    prevPageText: '上一页',
+    nextPageText: '下一页',
+    outlineTitle: '本页目录',
     socialLinks: [
+      {
+        icon: 'github',
+        mode: 'link',
+        content: 'https://github.com/KintaMiao/HGTechKB', // 请替换为实际的GitHub链接
+      },
     ],
     sidebar: {
       '/information-technology/': [
@@ -146,5 +181,18 @@ export default defineConfig({
         link: '/ai-assistant',
       },
     ],
+    // 页脚配置
+    footer: {
+      message: '© 2024 浙江省杭州高级中学 技术学科知识库<br/>本知识库内容仅供学习参考使用',
+    },
   },
+  // SEO优化 - 添加meta标签
+  head: [
+    ['meta', { name: 'keywords', content: '信息技术,通用技术,算法,Python,编程,杭州高级中学' }],
+    ['meta', { name: 'author', content: '浙江省杭州高级中学' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:title', content: '浙江省杭州高级中学 技术学科知识库' }],
+    ['meta', { property: 'og:description', content: '本知识库服务于浙江省杭州高级中学选考技术学科的学生，包含信息技术和通用技术两部分内容' }],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0' }],
+  ],
 });

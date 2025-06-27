@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# 允许搜索引擎抓取所有内容
+Disallow: /node_modules/
+Disallow: /dist/
+Disallow: /doc_build/
+
+# 站点地图
+Sitemap: https://your-domain.com/sitemap.xml
